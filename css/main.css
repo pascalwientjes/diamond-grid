@@ -311,3 +311,15 @@ textarea {
 .grid-item:nth-child(4n+3) .diamond{background: violet}
 .grid-item:nth-child(4n+4) .diamond{background: yellow}
 .grid-item:nth-child(4n+5) .diamond{background: cyan}
+
+
+/*FIRST ROW*/
+.grid-item[style*="top: 0px"] .diamond {}
+/*SECOND ROW*/
+.grid-item[style*="top: 200px"] .diamond {}
+/*THIRD ROW*/
+.grid-item[style*="top: 400px"] .diamond {}
+/*FOURTH ROW*/
+.grid-item[style*="top: 600px"] .diamond {}
+/*FIFTH ROW*/
+.grid-item[style*="top: 800px"] .diamond {}
