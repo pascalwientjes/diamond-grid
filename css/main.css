@@ -281,7 +281,7 @@ textarea {
     }
 }
 
-.grid {margin: 300px 100px;}
+.grid {margin: 320px 100px;}
 
 .grid-item {
   width: 200px;
@@ -293,6 +293,7 @@ textarea {
  .grid-item.huge {
    width: 400px;
    height: 400px;
+   margin: -100px 0px 0px -100px;
    z-index: 10;
  }
 
