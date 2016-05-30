@@ -281,7 +281,8 @@ textarea {
     }
 }
 
-.grid {margin: 320px 100px;}
+.over-grid {width: 100%; overflow: hidden;}
+.grid {margin: 80px -120px 200px 100px;}
 
 .grid-item {
   width: 200px;
@@ -293,26 +294,24 @@ textarea {
  .grid-item.huge {
    width: 400px;
    height: 400px;
-   margin: -100px 0px 0px -100px;
-   z-index: 10;
  }
 
  .grid-item .diamond {
-   width: 282.8427124px;
-   height: 282.8427124px;
-   margin: -41.4213562px 0 0 -41.4213562px;
+   width: 226.27417px;
+   height: 226.27417px;
    -webkit-transform: rotate(-45deg);
        -ms-transform: rotate(-45deg);
         -o-transform: rotate(-45deg);
            transform: rotate(-45deg);
     overflow: hidden;
+    border: 3px solid #f2f2f2;
+    box-sizing: border-box;
     /*display: none;*/
 
  }
  .grid-item.huge .diamond {
-  width: 565.6854248px;
-  height: 565.6854248px;
-  margin: -84.27124px 0 0 -84.27124px;
+  width: 452.54834px;
+  height: 452.54834px;
  }
 
 .grid-item .diamond .inner-diamond{
@@ -333,29 +332,67 @@ textarea {
 
 
 /*FIRST CYCLE OF 4 ROWS*/
+.grid-item:not(.huge) {
+  margin-bottom: 120px;
+}
 
-/*FIRST ROW*/
-.grid-item[style*="top: 0px"]:not(.huge):nth-child(2n+2) .diamond {margin-top: -241.4213562px;}
-/*SECOND ROW*/
-.grid-item[style*="top: 200px"]:not(.huge) .diamond {margin-right: -158.5786438px;}
-.grid-item[style*="top: 200px"]:not(.huge):nth-child(2n+1) .diamond{margin-top: 158.5786438px}
-/*THIRD ROW*/
-.grid-item[style*="top: 400px"]:not(.huge) .diamond {}
-.grid-item[style*="top: 400px"]:not(.huge):nth-child(2n+2) .diamond {margin-top: 158.5786438px}
-/*FOURTH ROW*/
-.grid-item[style*="top: 600px"]:not(.huge) .diamond {margin-left: 158.5786438px;}
-.grid-item[style*="top: 600px"]:not(.huge):nth-child(2n+2)  .diamond{margin-top: 158.5786438px; margin-left: -241.4213562px}
-
-/*SECOND CYCLE OF 4 ROWS */
-
-/*FIRST ROW*/
-.grid-item[style*="top: 800px"]:not(.huge):nth-child(2n+2) .diamond {margin-top: -241.4213562px;}
-/*SECOND ROW*/
-.grid-item[style*="top: 1000px"]:not(.huge) .diamond {margin-right: -158.5786438px;}
-.grid-item[style*="top: 1000px"]:not(.huge):nth-child(2n+1) .diamond{margin-top: 158.5786438px}
-/*THIRD ROW*/
-.grid-item[style*="top: 1200px"]:not(.huge) .diamond {}
-.grid-item[style*="top: 1200px"]:not(.huge):nth-child(2n+2) .diamond {margin-top: 158.5786438px}
-/*FOURTH ROW*/
-.grid-item[style*="top: 1400px"]:not(.huge) .diamond {margin-left: 158.5786438px;}
-.grid-item[style*="top: 1400px"]:not(.huge):nth-child(2n+2)  .diamond{margin-top: 158.5786438px; margin-left: -241.4213562px}
+.grid-item[style*='left: 200px']:not(.huge) {
+  -webkit-transform: translate(-40px, 160px);
+      -ms-transform: translate(-40px, 160px);
+       -o-transform: translate(-40px, 160px);
+          transform: translate(-40px, 160px);
+}
+.grid-item[style*='left: 200px'].huge {
+  -webkit-transform: translate(7px, 46px);
+  -ms-transform: translate(7px, 46px);
+  -o-transform: translate(7px, 46px);
+  transform: translate(7px, 46px);
+}
+.grid-item[style*='left: 400px']:not(.huge) {
+  -webkit-transform: translate(-80px, 0px);
+      -ms-transform: translate(-80px, 0px);
+       -o-transform: translate(-80px, 0px);
+          transform: translate(-80px, 0px);
+}
+.grid-item[style*="left: 600px"]:not(.huge) {
+  -webkit-transform: translate(-120px, 160px);
+      -ms-transform: translate(-120px, 160px);
+       -o-transform: translate(-120px, 160px);
+          transform: translate(-120px, 160px);
+}
+.grid-item[style*="left: 800px"]:not(.huge) {
+  -webkit-transform: translate(-160px, 0px);
+      -ms-transform: translate(-160px, 0px);
+       -o-transform: translate(-160px, 0px);
+          transform: translate(-160px, 0px);
+}
+.grid-item[style*="left: 1000px"]:not(.huge) {
+  -webkit-transform: translate(-200px, 160px);
+      -ms-transform: translate(-200px, 160px);
+       -o-transform: translate(-200px, 160px);
+          transform: translate(-200px, 160px);
+}
+.grid-item[style*="left: 1200px"]:not(.huge) {
+  -webkit-transform: translate(-240px, 0px);
+      -ms-transform: translate(-240px, 0px);
+       -o-transform: translate(-240px, 0px);
+          transform: translate(-240px, 0px);
+}
+.grid-item[style*="left: 1400px"]:not(.huge) {
+  -webkit-transform: translate(-280px, 160px);
+      -ms-transform: translate(-280px, 160px);
+       -o-transform: translate(-280px, 160px);
+          transform: translate(-280px, 160px);
+}
+.grid-item[style*="left: 1600px"]:not(.huge) {
+  -webkit-transform: translate(-320px, 0px);
+      -ms-transform: translate(-320px, 0px);
+       -o-transform: translate(-320px, 0px);
+          transform: translate(-320px, 0px);
+}
+.grid-item[style*="left: 1800px"]:not(.huge) {
+  -webkit-transform: translate(-360px, 160px);
+      -ms-transform: translate(-360px, 160px);
+       -o-transform: translate(-360px, 160px);
+          transform: translate(-360px, 160px);
+}
