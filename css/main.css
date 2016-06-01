@@ -1,8 +1,31 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic,900,900italic);
+@import url("icomoon.css");
+
+@font-face {
+    font-family: 'icomoon';
+    src:    url('../fonts/icomoon.eot?cgucyu');
+    src:    url('../fonts/icomoon.eot?cgucyu#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?cgucyu') format('truetype'),
+        url('../fonts/icomoon.woff?cgucyu') format('woff'),
+        url('../fonts/icomoon.svg?cgucyu#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 
 body {margin: 0; padding: 0;}
 
+.grid-container {position: relative;}
+.bg-grid {
+  background: #f2f2f2;
+  position: absolute;
+  top: 258px;
+  left: 0;
+  right: 0;
+  bottom: 100px;
 
+}
 .over-grid {width: 100%; overflow: hidden;}
 .grid {margin: 120px -120px 200px 120px;}
 
@@ -65,19 +88,23 @@ body {margin: 0; padding: 0;}
     top: 0;
     opacity: 0;
     left: 0;
-    transition: all 0.3s ease-out;
+    /*-webkit-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+         -o-transform: translateZ(0);
+            transform: translateZ(0);*/
+    /*transform-style: preserve-3d;*/
+    -webkit-transition: opacity 0.3s ease-out 0.2s;
+         -o-transition: opacity 0.3s ease-out 0.2s;
+            transition: opacity 0.3s ease-out 0.2s;
   }
-  .grid-item:not(.your-project) .diamond:hover .diamond-content {opacity: 1;}
+  .grid-item:not(.your-project) .diamond:hover .diamond-content{opacity: 1;}
   .grid-item .diamond .diamond-content .diamond-logo {
     width: 200px;
     height: 80px;
     position: relative;
     left: 50%;
     margin-top: 25%;
-    -webkit-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
-         -o-transform: translateX(-50%);
-            transform: translateX(-50%);
+    margin-left: -100px;
   }
 
   .grid-item .diamond .diamond-content .no-logo {
@@ -86,10 +113,7 @@ body {margin: 0; padding: 0;}
     position: relative;
     left: 50%;
     margin-top: 25%;
-    -webkit-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
-         -o-transform: translateX(-50%);
-            transform: translateX(-50%);
+    margin-left: -100px;
     font-family: 'Lato', Arial, Helvetica, sans-serif;
     color: #fff;
     font-size: 22px;
@@ -102,6 +126,7 @@ body {margin: 0; padding: 0;}
 
     width: 400px;
     height: 160px;
+    margin-left: -200px;
   }
 
     .grid-item .diamond .diamond-content .diamond-exerpt {
@@ -167,7 +192,9 @@ body {margin: 0; padding: 0;}
        -moz-backface-visibility: visible;
         -ms-backface-visibility: visible;
             backface-visibility: visible;
-    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s;
+         -o-transition: all 0.3s;
+            transition: all 0.3s;
   }
   .grid-item .diamond:hover .inner-diamond img.abstract {
     opacity: 0.4;
@@ -195,7 +222,7 @@ body {margin: 0; padding: 0;}
     transform: translate(-53%, -70%);
   }
 
-/*FIRST CYCLE OF 4 ROWS*/
+/*OFFSETS PER COLLUMN*/
 .grid-item:not(.huge) {
  -webkit-transform: translate(0px, 0px);
      -ms-transform: translate(0px, 0px);
@@ -269,41 +296,111 @@ body {margin: 0; padding: 0;}
 
 
 
-
-
-
-
-
-
-
  /*BUTTON STYLES*/
 
  a.button {
    font-family: 'Lato', Arial, Helvetica, sans-serif;
    font-weight: 300;
-   border: 1px solid #fff;
+   border-color:#fff;
    box-sizing: border-box;
    display: block;
-   width: 150px;
-   height: 40px;
+   width: 160px;
+   overflow: hidden;
+   padding: 0;
    font-size: 18px;
-   margin-left: calc(50% - 75px);
-   line-height: 38px;
+   margin-left: calc(50% - 80px);
    position: relative;
    text-decoration: none;
    color: #fff;
+   height: 40px;
    text-align: center;
  }
+
+  a.button i {
+    position: absolute;
+    display: inline-block;
+    left: 0;
+    width: 100%;
+    top: 6px;
+    margin-top: 0;
+    -webkit-transition: margin-top 0.3s;
+            transition: margin-top 0.3s;
+    -webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+            transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+    vertical-align: middle;
+  }
+  .huge a.button i {top: 0;}
+        a.button:hover i {margin-top: 40px;}
+  .huge a.button:hover i {margin-top: 56px;}
+
+  a.button span {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-top: -56px;
+    -webkit-transition: margin-top 0.3s;
+            transition: margin-top 0.3s;
+    -webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+            transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+  }
+  a.button:hover span {margin-top: 0;}
+
+  a.button span:before {
+    padding-right: 10px;
+    margin: 0 -20px 0 0;
+    content: "<";
+    opacity: 0;
+    color: #EE7600;
+    display: inline-block;
+    -webkit-transition: margin 0.3s 0.2s, opacity 0.2s 0.2s;
+         -o-transition: margin 0.3s 0.2s, opacity 0.2s 0.2s;
+            transition: margin 0.3s 0.2s, opacity 0.2s 0.2s;
+
+  }
+  a.button span:after {
+    padding-left: 10px;
+    margin: 0 0 0 -20px;
+    content: "/>";
+    opacity: 0;
+    color: #EE7600;
+    display: inline-block;
+    -webkit-transition: margin 0.3s 0.2s, opacity 0.2s 0.2s;
+         -o-transition: margin 0.3s 0.2s, opacity 0.2s 0.2s;
+            transition: margin 0.3s 0.2s, opacity 0.2s 0.2s;
+
+  }
+  a.button:hover span:before, a.button:hover span:after {
+    opacity: 1;
+    margin: 0px;
+
+  }
+
+  a.button:before {
+    content: '';
+    position: absolute;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-top: 0px;
+    height: 100%;
+    border: 2px solid #fff;
+    -webkit-transition: margin-top 0.3s;
+            transition: margin-top 0.3s;
+    -webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+            transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+
+
+  }
+  a.button:hover::before {margin-top: 38px;}
+  .huge a.button:hover::before {margin-top: 56px;}
 
  .huge a.button {
    font-size: 27px;
    width: 250px;
    height: 58px;
-   border-width: 2px;
    margin-left: calc(50% - 125px);
    line-height: 54px;
-   text-shadow: 0 0 1px rgba(255,255,255,0.3);
- }
- .grid-item .diamond .diamond-content a:hover {
-   background: #ee7600;
  }
