@@ -53,7 +53,7 @@ body {margin: 0; padding: 0;}
     overflow: hidden;
     box-sizing: border-box;
     position: relative;
-    background: #171c26;
+
     border: 5px solid #f2f2f2;
     outline: 4px solid #f2f2f2;
     -webkit-backface-visibility: hidden;
@@ -61,6 +61,9 @@ body {margin: 0; padding: 0;}
         -ms-backface-visibility: hidden;
             backface-visibility: hidden;
  }
+  .grid-item .img-container {
+    background: rgb(23,28,38);
+  }
 
 
  .grid-item.huge .diamond {

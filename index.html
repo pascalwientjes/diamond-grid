@@ -380,12 +380,7 @@
 
 
         function addGridHover() {
-          if(Modernizr.cssfilters) {
-
-          }
-          else {
-            jQuery('.grid-item').removeClass('grid-hover');
-          }
+          jQuery('.grid-item').removeClass('grid-hover');
           jQuery(this).parents('.grid-item').addClass('grid-hover');
         }
 
@@ -393,7 +388,7 @@
         jQuery('.grid-item .button-container').mouseenter(addGridHover);
         if(Modernizr.cssfilters) {
           jQuery('.grid-item .diamond').mouseleave(function(){
-            jQuery(this).parents('.grid-item').removeClass('grid-hover')
+            jQuery('.grid-item').removeClass('grid-hover')
           });
         }
         </script>
