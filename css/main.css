@@ -160,10 +160,13 @@ body {margin: 0; padding: 0;}
            transform: translate(46px, 1px);
  }
 
+
+/*COMMENTAAR PATRICK COMMENT DIT BLOCK UIT*/
  div.grid-item.huge.second + div.grid-item:not(.huge) {
   left: 346px!important;
    top: 393px!important;
  }
+ /*COMMENTAAR PATRICK TOT HIER*/
 
  .grid-item  .inner-diamond{
     width: 394px;

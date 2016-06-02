@@ -3,11 +3,10 @@
 A masonry based grid made up of diamonds ... diamondry if you will ;)
 
 # To do
-  - edit masonry so that it gives a class to rows every 4 (thomas, marco or patrick :D need ur help on that)
-  - edit masonry so that it knows if there's an odd or even amount of objects in a row (again thomas, marco or patrick ^.^ )
-  - Figure out if there's another possible way to do the huge diamond without needing 3 empty placeholder blocks  
+  - edit masonry so that it handles big diamonds well within the grid (Patrick)
+  - preferably edit masonry also that it gives a class name to grid items with a class that has the collumn number in it so something like "column1" etc.
 
 #### And also:
-  - Fill Diamonds with content and style it
+  -
   - Insert the whole thing in new website
-  - Make it so wordpress can create new Diamond styled project, with exerpt, image, title, link and Diamond size normal or huge
+  - Make it so Wordpress can create new Diamond styled project, with exerpt, image, title, link and Diamond size normal or huge
