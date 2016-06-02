@@ -60,60 +60,57 @@ body {margin: 0; padding: 0;}
        -moz-backface-visibility: hidden;
         -ms-backface-visibility: hidden;
             backface-visibility: hidden;
-    /*display: none;*/
  }
-  /*.grid-item .diamond:before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    border: 4px solid #f2f2f2;
-  }*/
+
+
  .grid-item.huge .diamond {
   width: 556.6344582px;
   height: 556.6344582px;
  }
-  .grid-item:not(.your-project) .diamond:hover {
+
+  .grid-item.grid-hover:not(.your-project) .diamond {
     -webkit-backface-visibility: visible;
        -moz-backface-visibility: visible;
         -ms-backface-visibility: visible;
             backface-visibility: visible;
   }
 
-  .grid-item .diamond .diamond-content {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
+  .grid-item .inner-diamond {
     opacity: 0;
-    left: 0;
-    /*-webkit-transform: translateZ(0);
-        -ms-transform: translateZ(0);
-         -o-transform: translateZ(0);
-            transform: translateZ(0);*/
-    /*transform-style: preserve-3d;*/
+    pointer-events: none;
     -webkit-transition: opacity 0.3s ease-out 0.2s;
          -o-transition: opacity 0.3s ease-out 0.2s;
             transition: opacity 0.3s ease-out 0.2s;
   }
-  .grid-item:not(.your-project) .diamond:hover .diamond-content{opacity: 1;}
-  .grid-item .diamond .diamond-content .diamond-logo {
+  .grid-item.grid-hover .inner-diamond{opacity: 1;}
+  .grid-item .diamond-content {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-transition: opacity 0.3s ease-out 0.2s;
+         -o-transition: opacity 0.3s ease-out 0.2s;
+            transition: opacity 0.3s ease-out 0.2s;
+  }
+  .grid-item .diamond-content .diamond-logo {
     width: 200px;
     height: 80px;
     position: relative;
     left: 50%;
     margin-top: 25%;
-    margin-left: -100px;
+    margin-left: -104px;
   }
 
-  .grid-item .diamond .diamond-content .no-logo {
+  .grid-item .diamond-content .diamond-logo img {width: 100%;}
+
+  .grid-item .diamond-content .no-logo {
     width: 200px;
     height: 80px;
     position: relative;
     left: 50%;
     margin-top: 25%;
-    margin-left: -100px;
+    margin-left: -104px;
     font-family: 'Lato', Arial, Helvetica, sans-serif;
     color: #fff;
     font-size: 22px;
@@ -122,30 +119,30 @@ body {margin: 0; padding: 0;}
     text-align: center;
   }
 
-  .grid-item.huge .diamond .diamond-content .diamond-logo {
+  .grid-item.huge .diamond-content .diamond-logo {
 
     width: 400px;
     height: 160px;
     margin-left: -200px;
   }
 
-    .grid-item .diamond .diamond-content .diamond-exerpt {
+    .grid-item .diamond-content .diamond-exerpt {
       font-family: 'Lato', Arial, Helvetica, sans-serif;
       font-style: italic;
       font-style: 18px;
       font-weight: 300;
       color: #fff;
       width: 80%;
-      margin: 2% 10% 5%;
+      margin: 2% 11% 5% 9%;
       text-align: center;
     }
-    .grid-item.huge .diamond .diamond-content .diamond-exerpt {
+    .grid-item.huge .diamond-content .diamond-exerpt {
       font-size: 27px;
       margin: 5% 10%;
     }
 
-    .grid-item .diamond .diamond-content .diamond-exerpt:before {content: "\201C"}
-    .grid-item .diamond .diamond-content .diamond-exerpt:after {content: "\201D"}
+    .grid-item .diamond-content .diamond-exerpt:before {content: "\201C"}
+    .grid-item .diamond-content .diamond-exerpt:after {content: "\201D"}
 
  div.grid-item.huge.first {
    -webkit-transform: translate(-141px, 57px);
@@ -168,35 +165,62 @@ body {margin: 0; padding: 0;}
    top: 393px!important;
  }
 
- .grid-item .diamond .inner-diamond{
-    -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-         -o-transform: rotate(45deg);
-            transform: rotate(45deg);
+ .grid-item  .inner-diamond{
     width: 394px;
     height: 394px;
-    position: relative;
-    top: -23%;
-    left: -23%;
+    position: absolute;
+    top: -22%;
+    left: -22%;
  }
- .grid-item.huge .diamond .inner-diamond {
+  .grid-item .button-container {
+    display: inline-block;
+    left: 50%;
+    top: 0;
+    opacity: 0;
+    margin-top: 76%;
+    position: absolute;
+    margin-left: -65px;
+    -webkit-transition: opacity 0.3s ease-out 0.2s;
+         -o-transition: opacity 0.3s ease-out 0.2s;
+            transition: opacity 0.3s ease-out 0.2s;
+  }
+  .grid-item.grid-hover .button-container {
+    opacity: 1;
+  }
+ .grid-item.huge .inner-diamond{
    width: 788px;
    height: 788px;
-   top: -22%;
-   left: -22%;
+   top: -23%;
+   left: -23%;
+ }
+ .grid-item.huge .button-container {
+  margin-top: 80%;
+  margin-left: -95px;
  }
 
-  .grid-item .diamond .inner-diamond img {
+  .grid-item .diamond img {
     width: 100%;
-    -webkit-backface-visibility: visible;
-       -moz-backface-visibility: visible;
-        -ms-backface-visibility: visible;
-            backface-visibility: visible;
+    -webkit-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+         -o-transform: translateZ(0);
+            transform: translateZ(0);
     -webkit-transition: all 0.3s;
          -o-transition: all 0.3s;
             transition: all 0.3s;
   }
-  .grid-item .diamond:hover .inner-diamond img.abstract {
+  .grid-item .diamond .img-container {
+    width: 394px;
+    height: 394px;
+    position: relative;
+    top: -22%;
+    left: -22%;
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+         -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  .grid-item.huge .diamond .img-container {width: 788px; height: 788px; }
+  .grid-item.grid-hover .img-container img {
     opacity: 0.4;
     width: 110%;
     margin-top: -5%;
@@ -206,8 +230,8 @@ body {margin: 0; padding: 0;}
             filter: blur(10px);
   }
 
-  .grid-item.your-project .inner-diamond {background: #ee7600;}
-  .grid-item.your-project .inner-diamond p {
+  .grid-item.your-project .diamond {background: #ee7600;}
+  .grid-item.your-project .diamond p {
     font-family: 'Lato', Arial, Helvetica, sans-serif;
     font-weight: 300;
     font-size: 38px;
@@ -216,10 +240,10 @@ body {margin: 0; padding: 0;}
     text-align: center;
     top: 50%;
     left: 50%;
-    -webkit-transform: translate(-53%, -70%);
-    -ms-transform: translate(-53%, -70%);
-    -o-transform: translate(-53%, -70%);
-    transform: translate(-53%, -70%);
+    -webkit-transform: translate(-50%, -71%) rotate(45deg);
+        -ms-transform: translate(-50%, -71%) rotate(45deg);
+         -o-transform: translate(-50%, -71%) rotate(45deg);
+            transform: translate(-50%, -71%) rotate(45deg);
   }
 
 /*OFFSETS PER COLLUMN*/
@@ -308,8 +332,8 @@ body {margin: 0; padding: 0;}
    overflow: hidden;
    padding: 0;
    font-size: 18px;
-   margin-left: calc(50% - 80px);
-   position: relative;
+   position: relative;;
+   top: 0;
    text-decoration: none;
    color: #fff;
    height: 40px;
@@ -404,3 +428,5 @@ body {margin: 0; padding: 0;}
    margin-left: calc(50% - 125px);
    line-height: 54px;
  }
+
+.no-cssfilters .grid-hover.grid-item .img-container img {opacity: 0.1;}
