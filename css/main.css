@@ -37,11 +37,21 @@ body {margin: 0; padding: 0;}
   /*border: 1px solid #000;*/
  }
 
- .grid-item.huge {
-   width: 492px;
-   height: 492px;
-   margin-bottom: 295.2px;
- }
+/** Patrick: verander de vierkant in een platte rechthoek (3 kleine blokjes groot) */
+
+ /*.grid-item.huge {*/
+   /*width: 492px;*/
+   /*height: 492px;*/
+   /*margin-bottom: 295.2px;*/
+ /*}*/
+
+.grid-item.huge {
+    width: 738px;
+    height: 246px;
+    margin-bottom: 147.6px;
+}
+
+/** end Patrick: */
 
  .grid-item .diamond {
    width: 278.3172291px;
@@ -147,29 +157,33 @@ body {margin: 0; padding: 0;}
     .grid-item .diamond-content .diamond-exerpt:before {content: "\201C"}
     .grid-item .diamond-content .diamond-exerpt:after {content: "\201D"}
 
- div.grid-item.huge.first {
-   -webkit-transform: translate(-141px, 57px);
-   -ms-transform: translate(-141px, 57px);
-   -o-transform: translate(-141px, 57px);
-   transform: translate(-141px, 57px);
- }
+/** Patrick: */
 
- div.grid-item.huge.first ~ .grid-item:nth-child(6) {visibility: hidden;}
- div.grid-item.huge.first ~ .grid-item:nth-child(6):last-child {visibility: visible;}
- div.grid-item.huge.first ~ .grid-item:last-child:nth-child(8) {
-   -webkit-transform: translate(46px, 1px);
-       -ms-transform: translate(46px, 1px);
-        -o-transform: translate(46px, 1px);
-           transform: translate(46px, 1px);
- }
+ /*div.grid-item.huge.first {*/
+   /*-webkit-transform: translate(-141px, 57px);*/
+   /*-ms-transform: translate(-141px, 57px);*/
+   /*-o-transform: translate(-141px, 57px);*/
+   /*transform: translate(-141px, 57px);*/
+ /*}*/
+
+ /*div.grid-item.huge.first ~ .grid-item:nth-child(6) {visibility: hidden;}*/
+ /*div.grid-item.huge.first ~ .grid-item:nth-child(6):last-child {visibility: visible;}*/
+ /*div.grid-item.huge.first ~ .grid-item:last-child:nth-child(8) {*/
+   /*-webkit-transform: translate(46px, 1px);*/
+       /*-ms-transform: translate(46px, 1px);*/
+        /*-o-transform: translate(46px, 1px);*/
+           /*transform: translate(46px, 1px);*/
+ /*}*/
 
 
 /*COMMENTAAR PATRICK COMMENT DIT BLOCK UIT*/
- div.grid-item.huge.second + div.grid-item:not(.huge) {
-  left: 346px!important;
-   top: 393px!important;
- }
+ /*div.grid-item.huge.second + div.grid-item:not(.huge) {*/
+  /*left: 346px!important;*/
+   /*top: 393px!important;*/
+ /*}*/
  /*COMMENTAAR PATRICK TOT HIER*/
+
+/** end Patrick: */
 
  .grid-item  .inner-diamond{
     width: 394px;
@@ -259,74 +273,79 @@ body {margin: 0; padding: 0;}
       -o-transform: translate(0px, 0px);
          transform: translate(0px, 0px);
 }
- .grid-item[style*='left: 246px']:not(.huge) {
+ .grid-item[style*='left: 246px'] {
   -webkit-transform: translate(-50px, 197px);
       -ms-transform: translate(-50px, 197px);
        -o-transform: translate(-50px, 197px);
           transform: translate(-50px, 197px);
  }
- .grid-item.second.huge {
-  -webkit-transform: translate(6px, 57px);
-      -ms-transform: translate(6px, 57px);
-       -o-transform: translate(6px, 57px);
-          transform: translate(6px, 57px);
- }
- .grid-item[style*='left: 492px']:not(.huge) {
+
+/** Patrick: */
+
+ /*.grid-item.huge {*/
+  /*-webkit-transform: translate(6px, 57px);*/
+      /*-ms-transform: translate(6px, 57px);*/
+       /*-o-transform: translate(6px, 57px);*/
+          /*transform: translate(6px, 57px);*/
+ /*}*/
+
+.grid-item.huge .diamond {
+    margin-top: -140px;
+    margin-left: 50px;
+}
+
+/** end Patrick: */
+
+ .grid-item[style*='left: 492px'] {
   -webkit-transform: translate(-100px, 0px);
       -ms-transform: translate(-100px, 0px);
        -o-transform: translate(-100px, 0px);
           transform: translate(-100px, 0px);
  }
- .grid-item[style*="left: 738px"]:not(.huge) {
+ .grid-item[style*="left: 738px"] {
   -webkit-transform: translate(-150px, 197px);
       -ms-transform: translate(-150px, 197px);
        -o-transform: translate(-150px, 197px);
           transform: translate(-150px, 197px);
  }
- .grid-item[style*="left: 984px"]:not(.huge) {
+ .grid-item[style*="left: 984px"] {
   -webkit-transform: translate(-200px, 0px);
       -ms-transform: translate(-200px, 0px);
        -o-transform: translate(-200px, 0px);
           transform: translate(-200px, 0px);
  }
- .grid-item[style*="left: 1230px"]:not(.huge) {
+ .grid-item[style*="left: 1230px"] {
   -webkit-transform: translate(-250px, 197px);
       -ms-transform: translate(-250px, 197px);
        -o-transform: translate(-250px, 197px);
           transform: translate(-250px, 197px);
  }
- .grid-item[style*="left: 1476px"]:not(.huge) {
+ .grid-item[style*="left: 1476px"] {
   -webkit-transform: translate(-300px, 0px);
       -ms-transform: translate(-300px, 0px);
        -o-transform: translate(-300px, 0px);
           transform: translate(-300px, 0px);
  }
- .grid-item[style*="left: 1722px"]:not(.huge) {
+ .grid-item[style*="left: 1722px"] {
   -webkit-transform: translate(-350px, 197px);
       -ms-transform: translate(-350px, 197px);
        -o-transform: translate(-350px, 197px);
           transform: translate(-350px, 197px);
  }
- .grid-item[style*="left: 1968px"]:not(.huge) {
+ .grid-item[style*="left: 1968px"] {
   -webkit-transform: translate(-400px, 0px);
       -ms-transform: translate(-400px, 0px);
        -o-transform: translate(-400px, 0px);
           transform: translate(-400px, 0px);
  }
- .grid-item[style*="left: 2214px"]:not(.huge) {
+ .grid-item[style*="left: 2214px"] {
   -webkit-transform: translate(-450px, 197px);
       -ms-transform: translate(-450px, 197px);
        -o-transform: translate(-450px, 197px);
           transform: translate(-450px, 197px);
  }
 
-
-
-
-
-
-
- /*BUTTON STYLES*/
+/*BUTTON STYLES*/
 
  a.button {
    font-family: 'Lato', Arial, Helvetica, sans-serif;
@@ -436,3 +455,34 @@ body {margin: 0; padding: 0;}
  }
 
 .no-cssfilters .grid-hover.grid-item .img-container img {opacity: 0.1;}
+
+/** Patrick: development code (aanzetten met class 'bare' op de body) */
+
+body.bare .diamond, body.bare .inner-diamond, body.bare .button-container {
+    display: none !important;
+}
+
+body.bare .grid-item {
+    border: 1px solid #000;
+    background-color: green;
+    margin-bottom: 0;
+    width: 246px;
+    height: 246px;
+    -webkit-transform: translate(0px, 0px) !important;
+    -ms-transform: translate(0px, 0px) !important;
+    -o-transform: translate(0px, 0px) !important;
+    transform: translate(0px, 0px) !important;
+}
+
+body.bare .grid-item.huge {
+    width: 738px;
+    height: 246px;
+    background-color: red;
+}
+
+body.bare .grid-item.huge-secondary {
+    background-color: deeppink;
+}
+
+
+/** end Patrick: */

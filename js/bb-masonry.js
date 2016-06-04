@@ -1,6 +1,6 @@
 Outlayer.prototype.parentProcessLayoutQueue = Outlayer.prototype._processLayoutQueue;
 
-Outlayer.prototype._processLayoutQueue1 = function(queue) {
+Outlayer.prototype._processLayoutQueue = function(queue) {
 
     var coordinateGrid = this._createGrid(queue);
 

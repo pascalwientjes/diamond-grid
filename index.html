@@ -13,11 +13,11 @@
 
 
     </head>
-    <body>
+    <!-- class='bare' for development -->
+    <body class=''>
         <div class="controls">
           <button onclick="addDiamond('')" class="append-button">New diamond</button>
-          <button onclick="addDiamond('huge first')" class="new-huge">New Huge diamond (first position)</button>
-          <button onclick="addDiamond('huge second')" class="new-huge">New Huge diamond (first position)</button>
+          <button onclick="addHugeDiamond('')" class="new-huge">New Huge diamond</button>
         </div>
 
         <div class="grid-container">
@@ -26,7 +26,7 @@
 
         <div class="over-grid">
         <div class="grid">
-              <div class="grid-item">
+              <div id="small1" class="grid-item">
                 <div class="diamond">
                   <div class="img-container">
                     <img src="images/portfolio1.jpg" alt="" />
@@ -45,7 +45,7 @@
                   </a>
                 </div>
               </div>
-              <div class="grid-item huge second">
+              <div id="huge1" class="grid-item huge">
                 <div class="diamond">
                   <div class="img-container">
                     <img src="images/portfolio2.jpg" alt="" />
@@ -64,6 +64,7 @@
                   </a>
                 </div>
               </div>
+<div id="secondary1" class="grid-item huge-secondary"></div>
               <div class="grid-item">
                 <div class="diamond">
                   <div class="img-container">
@@ -362,6 +363,7 @@
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 
         <script src="js/masonry.pkgd.js"></script>
+        <script src="js/bb-masonry.js"></script>
 
 
         <script>
@@ -373,11 +375,25 @@
 
         function addDiamond(className){
 
-          var element = "<div class='grid-item " + className + "'><div class='diamond'><div class='inner-diamond'></div></div></div>";
+          var element = document.getElementById('small1').cloneNode(true);
+          element.id = '';
+          element = jQuery(element);
+          jQuery('.grid').append(element).masonry( 'appended', element ).masonry('layout');
+
+        };
+
+        function addHugeDiamond(className){
+
+          var element = document.getElementById('huge1').cloneNode(true);
+          element.id = '';
+          element = jQuery(element);
+          jQuery('.grid').append(element).masonry( 'appended', element ).masonry('layout');
+
+          var element = document.getElementById('secondary1').cloneNode(true);
+          element.id = '';
           element = jQuery(element);
           jQuery('.grid').append(element).masonry( 'appended', element ).masonry('layout');
         };
-
 
         function addGridHover() {
           jQuery('.grid-item').removeClass('grid-hover');
