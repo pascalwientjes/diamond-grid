@@ -384,16 +384,18 @@
 
         function addHugeDiamond(className){
 
+          var grid = jQuery('.grid');
+
           var element = document.getElementById('huge1').cloneNode(true);
           element.id = '';
           element = jQuery(element);
-          jQuery('.grid').append(element).masonry( 'appended', element ).masonry('layout');
+          grid.append(element).masonry( 'appended', element );
 
-          var element = document.getElementById('secondary1').cloneNode(true);
+          element = document.getElementById('secondary1').cloneNode(true);
           element.id = '';
           element = jQuery(element);
-          jQuery('.grid').append(element).masonry( 'appended', element ).masonry('layout');
-        };
+          grid.append(element).masonry( 'appended', element ).masonry('layout');
+        }
 
         function addGridHover() {
           jQuery('.grid-item').removeClass('grid-hover');

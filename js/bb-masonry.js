@@ -1,41 +1,62 @@
 Outlayer.prototype.parentProcessLayoutQueue = Outlayer.prototype._processLayoutQueue;
 
+/**
+ * An override of Masonry's layout function.
+ *
+ * This function moves the 'secondary block' that belongs to a huge diamond
+ * to its proper position.
+ *
+ * @param queue
+ * @returns {*}
+ * @private
+ */
 Outlayer.prototype._processLayoutQueue = function(queue) {
 
     var coordinateGrid = this._createGrid(queue);
 
-    for (var i = 0; i < queue.length; i++) {
+    // ignore when Maonry calls this function with only 1 object
+    if (queue.length > 1) {
 
-        var position = queue[i];
-        var item = position.item;
-        var element = item.element;
+        for (var i = 0; i < queue.length; i++) {
 
-        if (jQuery(element).hasClass('huge-secondary')) {
+            var position = queue[i];
+            var item = position.item;
+            var element = item.element;
 
-            if (i == 0) {
-                // error
+            if (jQuery(element).hasClass('huge-secondary')) {
+
+                if (i == 0) {
+                    // error
+                    if (window.console) {
+                        console.log('A secondary block should be placed directly after a huge diamond block.');
+                    }
+                    break;
+                }
+
+                var currentSecondaryPosition = position;
+
+                var hugeDiamondPosition = queue[i - 1];
+
+                // locate the target position of the secondary block
+                var targetSecondaryPosition = this._getTargetPosition(hugeDiamondPosition, coordinateGrid);
+                if (targetSecondaryPosition) {
+
+                    // swap positions with this target position
+                    var swapX = currentSecondaryPosition.x;
+                    var swapY = currentSecondaryPosition.y;
+
+                    currentSecondaryPosition.x = targetSecondaryPosition.x;
+                    currentSecondaryPosition.y = targetSecondaryPosition.y;
+
+                    targetSecondaryPosition.x = swapX;
+                    targetSecondaryPosition.y = swapY;
+
+                }
             }
-
-            var currentSecondaryPosition = position;
-
-            var hugeDiamondPosition = queue[i - 1];
-
-            // locate the target position of the secondary block
-            var targetSecondaryPosition = this._getTargetPosition(hugeDiamondPosition, coordinateGrid);
-
-            // swap positions with this target position
-            var swapX = currentSecondaryPosition.x;
-            var swapY = currentSecondaryPosition.y;
-
-            currentSecondaryPosition.x = targetSecondaryPosition.x;
-            currentSecondaryPosition.y = targetSecondaryPosition.y;
-
-            targetSecondaryPosition.x = swapX;
-            targetSecondaryPosition.y = swapY;
         }
     }
 
-    // perform the original element layout function
+    // perform Masonry's original element layout function
     return Outlayer.prototype.parentProcessLayoutQueue.apply(this, [queue]);
 };
 
@@ -103,12 +124,14 @@ Outlayer.prototype._getTargetPosition = function(hugeDiamondPosition, coordinate
         targetRow = row + 1;
     }
 
-    if (typeof coordinateGrid['col' + targetCol] == 'undefined') {
-        // err
-    }
+    if ((typeof coordinateGrid['col' + targetCol] == 'undefined') ||
+        (typeof coordinateGrid['col' + targetCol]['row' + targetRow] == 'undefined')) {
 
-    if (typeof coordinateGrid['col' + targetCol]['row' + targetRow] == 'undefined') {
-        // err
+        // error: the secondary block cannot be placed above of the first row or below the last row
+        if (window.console) {
+            console.log('The secondary block of a huge diamond cannot be placed above or below the existing blocks');
+            return null;
+        }
     }
 
     return coordinateGrid['col' + targetCol]['row' + targetRow];
