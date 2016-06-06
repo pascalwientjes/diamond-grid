@@ -34,8 +34,10 @@ body {margin: 0; padding: 0;}
   height: 246px;
   margin-bottom: 147.6px;
   box-sizing: border-box;
+  z-index: 1;
   /*border: 1px solid #000;*/
  }
+ .grid-item.huge-secondary {z-index: 0;}
 
 /** Patrick: verander de vierkant in een platte rechthoek (3 kleine blokjes groot) */
 
@@ -185,6 +187,7 @@ body {margin: 0; padding: 0;}
 
 /** end Patrick: */
 
+
  .grid-item  .inner-diamond{
     width: 394px;
     height: 394px;
@@ -210,12 +213,12 @@ body {margin: 0; padding: 0;}
  .grid-item.huge .inner-diamond{
    width: 788px;
    height: 788px;
-   top: -23%;
-   left: -23%;
+   top: -105%;
+   left: -8%;
  }
  .grid-item.huge .button-container {
-  margin-top: 80%;
-  margin-left: -95px;
+  margin-top: 33%;
+  margin-left: -22%;
  }
 
   .grid-item .diamond img {
