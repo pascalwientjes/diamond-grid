@@ -142,7 +142,7 @@ body {margin: 0; padding: 0;}
     .grid-item .diamond-content .diamond-exerpt {
       font-family: 'Lato', Arial, Helvetica, sans-serif;
       font-style: italic;
-      font-style: 18px;
+      font-size: 18px;
       font-weight: 300;
       color: #fff;
       width: 80%;
