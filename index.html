@@ -369,7 +369,6 @@
         <script>
         var $grid = jQuery('.grid').masonry({
           columnWidth: 246,
-          transitionDuration: 0,
           itemSelector: '.grid-item'
         });
 
@@ -398,7 +397,7 @@
         }
 
         function addGridHover() {
-          jQuery('.grid-item').removeClass('grid-hover');
+
           jQuery(this).parents('.grid-item').addClass('grid-hover');
         }
 
