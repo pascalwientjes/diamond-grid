@@ -39,16 +39,8 @@ body {margin: 0; padding: 0;}
  }
  .grid-item.huge-secondary {z-index: 0;}
 
-/** Patrick: verander de vierkant in een platte rechthoek (3 kleine blokjes groot) */
-
- /*.grid-item.huge {*/
-   /*width: 492px;*/
-   /*height: 492px;*/
-   /*margin-bottom: 295.2px;*/
- /*}*/
-
 .grid-item.huge {
-    width: 738px;
+    width: 246px;
     height: 246px;
     margin-bottom: 147.6px;
 }
@@ -159,35 +151,6 @@ body {margin: 0; padding: 0;}
     .grid-item .diamond-content .diamond-exerpt:before {content: "\201C"}
     .grid-item .diamond-content .diamond-exerpt:after {content: "\201D"}
 
-/** Patrick: */
-
- /*div.grid-item.huge.first {*/
-   /*-webkit-transform: translate(-141px, 57px);*/
-   /*-ms-transform: translate(-141px, 57px);*/
-   /*-o-transform: translate(-141px, 57px);*/
-   /*transform: translate(-141px, 57px);*/
- /*}*/
-
- /*div.grid-item.huge.first ~ .grid-item:nth-child(6) {visibility: hidden;}*/
- /*div.grid-item.huge.first ~ .grid-item:nth-child(6):last-child {visibility: visible;}*/
- /*div.grid-item.huge.first ~ .grid-item:last-child:nth-child(8) {*/
-   /*-webkit-transform: translate(46px, 1px);*/
-       /*-ms-transform: translate(46px, 1px);*/
-        /*-o-transform: translate(46px, 1px);*/
-           /*transform: translate(46px, 1px);*/
- /*}*/
-
-
-/*COMMENTAAR PATRICK COMMENT DIT BLOCK UIT*/
- /*div.grid-item.huge.second + div.grid-item:not(.huge) {*/
-  /*left: 346px!important;*/
-   /*top: 393px!important;*/
- /*}*/
- /*COMMENTAAR PATRICK TOT HIER*/
-
-/** end Patrick: */
-
-
  .grid-item  .inner-diamond{
     width: 394px;
     height: 394px;
@@ -283,21 +246,10 @@ body {margin: 0; padding: 0;}
           transform: translate(-50px, 197px);
  }
 
-/** Patrick: */
-
- /*.grid-item.huge {*/
-  /*-webkit-transform: translate(6px, 57px);*/
-      /*-ms-transform: translate(6px, 57px);*/
-       /*-o-transform: translate(6px, 57px);*/
-          /*transform: translate(6px, 57px);*/
- /*}*/
-
 .grid-item.huge .diamond {
-    margin-top: -138px;
-    margin-left: 55px;
+    margin-top: 55px;
+    margin-left: -138px;
 }
-
-/** end Patrick: */
 
  .grid-item[style*='left: 492px'] {
   -webkit-transform: translate(-100px, 0px);
@@ -468,7 +420,6 @@ body.bare .diamond, body.bare .inner-diamond, body.bare .button-container {
 body.bare .grid-item {
     border: 1px solid #000;
     background-color: green;
-    margin-bottom: 0;
     width: 246px;
     height: 246px;
     -webkit-transform: translate(0px, 0px) !important;
@@ -478,7 +429,7 @@ body.bare .grid-item {
 }
 
 body.bare .grid-item.huge {
-    width: 738px;
+    width: 246px;
     height: 246px;
     background-color: red;
 }

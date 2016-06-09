@@ -1,138 +1,106 @@
-Outlayer.prototype.parentProcessLayoutQueue = Outlayer.prototype._processLayoutQueue;
+Masonry.prototype.parent_layoutItems = Masonry.prototype._layoutItems;
 
 /**
  * An override of Masonry's layout function.
  *
- * This function moves the 'secondary block' that belongs to a huge diamond
- * to its proper position.
- *
- * @param queue
- * @returns {*}
- * @private
+ * Prepares the positions of all elements.
  */
-Outlayer.prototype._processLayoutQueue = function(queue) {
+Masonry.prototype._layoutItems = function(items, isInstant)
+{
+    this._prepareGrid(items);
 
-    var coordinateGrid = this._createGrid(queue);
-
-    // ignore when Maonry calls this function with only 1 object
-    if (queue.length > 1) {
-
-        for (var i = 0; i < queue.length; i++) {
-
-            var position = queue[i];
-            var item = position.item;
-            var element = item.element;
-
-            if (jQuery(element).hasClass('huge-secondary')) {
-
-                if (i == 0) {
-                    // error
-                    if (window.console) {
-                        console.log('A secondary block should be placed directly after a huge diamond block.');
-                    }
-                    break;
-                }
-
-                var currentSecondaryPosition = position;
-
-                var hugeDiamondPosition = queue[i - 1];
-
-                // locate the target position of the secondary block
-                var targetSecondaryPosition = this._getTargetPosition(hugeDiamondPosition, coordinateGrid);
-                if (targetSecondaryPosition) {
-
-                    // swap positions with this target position
-                    var swapX = currentSecondaryPosition.x;
-                    var swapY = currentSecondaryPosition.y;
-
-                    currentSecondaryPosition.x = targetSecondaryPosition.x;
-                    currentSecondaryPosition.y = targetSecondaryPosition.y;
-
-                    targetSecondaryPosition.x = swapX;
-                    targetSecondaryPosition.y = swapY;
-
-                }
-            }
-        }
-    }
-
-    // perform Masonry's original element layout function
-    return Outlayer.prototype.parentProcessLayoutQueue.apply(this, [queue]);
+    return Masonry.prototype.parent_layoutItems.apply(this, [items, isInstant]);
 };
+
+Masonry.prototype.parent_getItemLayoutPosition = Masonry.prototype._getItemLayoutPosition;
 
 /**
- * Returns the queue in grid form (a 2d array indexed by rows and columns) where positions are the elements
- * This structure allows us to find a position by its column and row indexes.
+ * An override of Masonry's layout function.
  *
- * It also assigns attributes 'bbColumn' and 'bbRow' to each position, for easier retrieval
- *
- * @param queue
- * @returns {{}}
- * @private
+ * Applies the prepared positions of all elements.
  */
-Outlayer.prototype._createGrid = function(queue)
-{
-    var coordinateGrid = {};
+Masonry.prototype._getItemLayoutPosition = function( item ) {
 
-    var row = 0;
-    var rowAccumulatedColumn = 0;
+    Masonry.prototype.parent_getItemLayoutPosition.apply(this, [item]);
 
-    for (var i = 0; i < queue.length; i++) {
-
-        var position = queue[i];
-        var item = position.item;
-        var element = item.element;
-        var columnSpan = (element.offsetWidth / this.columnWidth);
-
-        position['bbColumn'] = rowAccumulatedColumn;
-        position['bbRow'] = row;
-
-        for (var columnOffset = 0; columnOffset < columnSpan; columnOffset++) {
-
-            var col = rowAccumulatedColumn + columnOffset;
-
-            if (typeof coordinateGrid['col' + col] == 'undefined') {
-                coordinateGrid['col' + col] = {};
-            }
-
-            coordinateGrid['col' + col]['row' + row] = position;
-        }
-
-        rowAccumulatedColumn += columnSpan;
-
-        if (rowAccumulatedColumn >= this.cols) {
-            rowAccumulatedColumn = 0;
-            row++;
-        }
-    }
-
-    return coordinateGrid;
+    return {
+        x: item.bbX,
+        y: item.bbY
+    };
 };
 
-Outlayer.prototype._getTargetPosition = function(hugeDiamondPosition, coordinateGrid)
+Masonry.prototype._prepareGrid = function(items)
 {
-    var leftColumn = hugeDiamondPosition['bbColumn'];
-    var row = hugeDiamondPosition['bbRow'];
-    var targetCol, targetRow;
+    var queue = items.slice(0);
+    var positionedItems = {};
+    var clearances = {};
+    var layout = queue[0].layout;
 
-    targetCol = leftColumn + 1;
-    if (leftColumn % 2 == 0) {
-        // first, third, fifth, etc columns: position is above
-        targetRow = row - 1;
-    } else {
-        // second, fourth, sixth, etc columns: position is below
-        targetRow = row + 1;
-    }
+    for (var row = 0; queue.length > 0; row++) {
+        for (var col = 0; col < layout.cols; col++) {
 
-    if ((typeof coordinateGrid['col' + targetCol] == 'undefined') ||
-        (typeof coordinateGrid['col' + targetCol]['row' + targetRow] == 'undefined')) {
+            if (this._getGridElement(clearances, row, col)) {
+                continue;
+            }
 
-        // error: the secondary block cannot be placed above of the first row or below the last row
-        if (window.console) {
-            console.log('The secondary block of a huge diamond cannot be placed above or below the existing blocks');
-            return null;
+            if (queue.length > 0) {
+
+                var item = queue.shift();
+
+                item.getSize();
+
+                if (jQuery(item.element).hasClass('huge')) {
+
+                    if (col % 2 == 0) {
+
+                        if (col == 0 || col == (layout.cols - 1)) {
+                            // huge diamond cannot be located here; no space to expand left or right
+                            continue;
+                        }
+
+                        var leftNeighbour = this._getGridElement(positionedItems, row, col - 1);
+                        if (leftNeighbour) {
+                            queue.unshift(leftNeighbour);
+                        }
+
+                        this._setGridElement(clearances, row, col - 1, true);
+                        this._setGridElement(clearances, row, col + 1, true);
+                        this._setGridElement(clearances, row + 1, col, true);
+
+                    } else {
+
+                        this._setGridElement(clearances, row + 1, col - 1, true);
+                        this._setGridElement(clearances, row + 1, col, true);
+                        this._setGridElement(clearances, row + 1, col + 1, true);
+
+                    }
+                }
+
+                item['bbX'] = col * item.size.outerWidth;
+                item['bbY'] = row * item.size.outerHeight;
+
+                this.colYs[col] = row * item.size.outerHeight - 1;
+
+                this._setGridElement(positionedItems, row, col, item);
+            }
         }
     }
+};
 
-    return coordinateGrid['col' + targetCol]['row' + targetRow];
+Masonry.prototype._getGridElement = function(grid, row, col)
+{
+    if (typeof grid['row' + row] != 'undefined') {
+        if (grid['row' + row]['col' + col]) {
+            return grid['row' + row]['col' + col];
+        }
+    }
+    return null;
+};
+
+Masonry.prototype._setGridElement = function(grid, row, col, value)
+{
+    if (typeof grid['row' + row] == 'undefined') {
+        grid['row' + row] = {};
+    }
+    grid['row' + row]['col' + col] = value;
 };
