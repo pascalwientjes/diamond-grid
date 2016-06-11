@@ -28,17 +28,16 @@ Masonry.prototype._layoutItems = function(items, isInstant)
  */
 Masonry.prototype._getItemLayoutPosition = function( item ) {
 
-    return {
-        x: item.bbX,
-        y: item.bbY
-    };
+    // the items's position was precalculated (in _prepareGrid)
+    // we just need to return it here
+    return item.position;
 };
 
 Masonry.prototype._prepareGrid = function(items)
 {
     var grid = new BigBridge.Grid();
 
-    if (items.length == 0) {
+    if (items.length < 2) {
         return;
     }
 
@@ -54,7 +53,10 @@ Masonry.prototype._prepareGrid = function(items)
     // copy the item array, since we are going to modify it
     var itemQueue = items.slice(0);
 
+    // continue creation rows as long as there are items left
     for (var row = 0; itemQueue.length > 0; row++) {
+
+        // the number of columns is a given
         for (var col = 0; col < layout.cols; col++) {
 
             // is this position blocked?
@@ -63,49 +65,55 @@ Masonry.prototype._prepareGrid = function(items)
             }
 
             // any items left?
-            if (itemQueue.length > 0) {
+            if (itemQueue.length == 0) {
+                continue;
+            }
 
-                var item = this._selectNextItem(itemQueue, col, layout.cols);
+            var item = this._selectNextItem(itemQueue, col, layout.cols);
 
 
 // calculate its size
 item.getSize();
 
-                if (item.element.className.match(/huge/)) {
+            if (item.element.className.match(/huge/)) {
 
-                    if (col % 2 == 0) {
+                if (col % 2 == 0) {
 
-                        var leftNeighbour = grid.get(row, col - 1);
-                        if (leftNeighbour) {
-                            itemQueue.unshift(leftNeighbour);
-                        }
+                    // this huge diamond needs space to its left;
+                    var leftNeighbour = grid.get(row, col - 1);
 
-                        grid.set(row, col - 1, BigBridge.Grid.CLEARANCE);
-                        grid.set(row, col + 1, BigBridge.Grid.CLEARANCE);
-                        grid.set(row + 1, col, BigBridge.Grid.CLEARANCE);
-
-                    } else {
-
-                        // odd column
-
-                        grid.set(row + 1, col - 1, BigBridge.Grid.CLEARANCE);
-                        grid.set(row + 1, col, BigBridge.Grid.CLEARANCE);
-                        grid.set(row + 1, col + 1, BigBridge.Grid.CLEARANCE);
-
+                    // it cannot use the space of another huge diamond
+                    if (leftNeighbour == BigBridge.Grid.CLEARANCE) {
+                        continue;
                     }
 
+                    // we need to put the left neighbouring diamond back into the queue
+                    itemQueue.unshift(leftNeighbour);
+
+                    // make space for the huge diamond
+                    grid.set(row, col - 1, BigBridge.Grid.CLEARANCE);
+                    grid.set(row, col + 1, BigBridge.Grid.CLEARANCE);
+                    grid.set(row + 1, col, BigBridge.Grid.CLEARANCE);
+
+                } else {
+
+                    // odd column
+
+                    // make space for the huge diamond
+                    grid.set(row + 1, col - 1, BigBridge.Grid.CLEARANCE);
+                    grid.set(row + 1, col, BigBridge.Grid.CLEARANCE);
+                    grid.set(row + 1, col + 1, BigBridge.Grid.CLEARANCE);
+
                 }
-
-                // add some properties to the item, for later use
-                item['bbX'] = col * itemWidth;
-                item['bbY'] = row * itemHeight;
-
-                // mark the position of the item
-                grid.set(row, col, item);
-
-            } else {
-
             }
+
+            // tell the item where it is located
+            item.position.x = col * itemWidth;
+            item.position.y = row * itemHeight;
+
+            // mark the position of the item
+            grid.set(row, col, item);
+
         }
     }
 
@@ -122,39 +130,52 @@ Masonry.prototype._selectNextItem = function(itemQueue, col, colCount)
 
     if (item.element.className.match(/huge/)) {
 
-        if (col % 2 == 0) {
+        // determine if this is a good place for a huge diamond
+        var fit = (
+            (col > 0) &&
+            (col < (colCount - 1))
+        );
 
-            // even column
+        // if this is a fitting position, or there are no fitting positions because there are too little columns
+        if (fit || (colCount < 3)) {
 
-            if (col == 0 || col == (colCount - 1)) {
-
-                // huge diamond cannot be located here; no space to expand left or right
-
-                // we must place the diamond _somewhere_
-                if (colCount < 3) {
-                    // but there must be space for it: check the positions where the huge diamond will go
-                    if (1) {
-
-                    }
-                }
-                // can we use a waiting normal diamond?
-                else if (0) {
-
-                } else {
-                    // leave this position empty
-                    //continue;
-                }
-            }
+            // we're done
+            return item;
 
         } else {
 
-            // odd column
+            // try the next diamond first
 
+            if (itemQueue.length > 0) {
 
+                var nextItem = itemQueue.shift();
+
+                // is this a normal diamond?
+                if (!nextItem.element.className.match(/huge/)) {
+
+                    // push the huge diamond further up the queue
+                    itemQueue.unshift(item);
+
+                    return nextItem;
+
+                } else {
+
+                    // return the big diamond
+                    itemQueue.unshift(nextItem);
+
+                }
+            }
+
+            // no luck: just return the unfitting huge diamond
+            return item;
         }
-    }
 
-    return item;
+    } else {
+
+        // normal diamond is ok
+        return item;
+
+    }
 };
 
 /** ------ Grid ------ */
