@@ -1,3 +1,12 @@
+BigBridge = window.BigBridge || {};
+
+/**
+ * Masonry extension for diamond grid layout
+ *
+ * @author Pascal Wientjes (Concept, HTML, CSS)
+ * @author Patrick van Bergen (Javascript)
+ */
+
 Masonry.prototype.parent_layoutItems = Masonry.prototype._layoutItems;
 
 /**
@@ -21,8 +30,6 @@ Masonry.prototype.parent_getItemLayoutPosition = Masonry.prototype._getItemLayou
  */
 Masonry.prototype._getItemLayoutPosition = function( item ) {
 
-    Masonry.prototype.parent_getItemLayoutPosition.apply(this, [item]);
-
     return {
         x: item.bbX,
         y: item.bbY
@@ -31,21 +38,24 @@ Masonry.prototype._getItemLayoutPosition = function( item ) {
 
 Masonry.prototype._prepareGrid = function(items)
 {
-    var queue = items.slice(0);
-    var positionedItems = {};
-    var clearances = {};
-    var layout = queue[0].layout;
+    if (items.length == 0) {
+        return;
+    }
 
-    for (var row = 0; queue.length > 0; row++) {
+    var itemQueue = items.slice(0);
+    var grid = new BigBridge.Grid();
+    var layout = itemQueue[0].layout;
+
+    for (var row = 0; itemQueue.length > 0; row++) {
         for (var col = 0; col < layout.cols; col++) {
 
-            if (this._getGridElement(clearances, row, col)) {
+            if (grid.get(row, col) == BigBridge.Grid.CLEARANCE) {
                 continue;
             }
 
-            if (queue.length > 0) {
+            if (itemQueue.length > 0) {
 
-                var item = queue.shift();
+                var item = itemQueue.shift();
 
                 item.getSize();
 
@@ -54,24 +64,39 @@ Masonry.prototype._prepareGrid = function(items)
                     if (col % 2 == 0) {
 
                         if (col == 0 || col == (layout.cols - 1)) {
+
                             // huge diamond cannot be located here; no space to expand left or right
-                            continue;
+
+                            // we must place the diamond _somewhere_
+                            if (layout.cols.length < 3) {
+                                // but there must be space for it: check the positions where the huge diamond will go
+                                if (1) {
+
+                                }
+                            }
+                            // can we use a waiting normal diamond?
+                            else if (0) {
+
+                            } else {
+                                // leave this position empty
+                                continue;
+                            }
                         }
 
                         var leftNeighbour = this._getGridElement(positionedItems, row, col - 1);
                         if (leftNeighbour) {
-                            queue.unshift(leftNeighbour);
+                            itemQueue.unshift(leftNeighbour);
                         }
 
-                        this._setGridElement(clearances, row, col - 1, true);
-                        this._setGridElement(clearances, row, col + 1, true);
-                        this._setGridElement(clearances, row + 1, col, true);
+                        grid.set(row, col - 1, BigBridge.Grid.CLEARANCE);
+                        grid.set(row, col + 1, BigBridge.Grid.CLEARANCE);
+                        grid.set(row + 1, col, BigBridge.Grid.CLEARANCE);
 
                     } else {
 
-                        this._setGridElement(clearances, row + 1, col - 1, true);
-                        this._setGridElement(clearances, row + 1, col, true);
-                        this._setGridElement(clearances, row + 1, col + 1, true);
+                        grid.set(row + 1, col - 1, BigBridge.Grid.CLEARANCE);
+                        grid.set(row + 1, col, BigBridge.Grid.CLEARANCE);
+                        grid.set(row + 1, col + 1, BigBridge.Grid.CLEARANCE);
 
                     }
                 }
@@ -79,28 +104,35 @@ Masonry.prototype._prepareGrid = function(items)
                 item['bbX'] = col * item.size.outerWidth;
                 item['bbY'] = row * item.size.outerHeight;
 
-                this.colYs[col] = row * item.size.outerHeight - 1;
+                this.colYs[col] = (row + 1) * item.size.outerHeight;
 
-                this._setGridElement(positionedItems, row, col, item);
+                grid.set(row, col, item);
             }
         }
     }
 };
 
-Masonry.prototype._getGridElement = function(grid, row, col)
+BigBridge.Grid = function()
 {
-    if (typeof grid['row' + row] != 'undefined') {
-        if (grid['row' + row]['col' + col]) {
-            return grid['row' + row]['col' + col];
+    this.grid = {};
+};
+
+BigBridge.Grid.CLEARANCE = 'clearance';
+
+BigBridge.Grid.prototype.get = function(row, col)
+{
+    if (typeof this.grid['row' + row] != 'undefined') {
+        if (this.grid['row' + row]['col' + col]) {
+            return this.grid['row' + row]['col' + col];
         }
     }
     return null;
 };
 
-Masonry.prototype._setGridElement = function(grid, row, col, value)
+BigBridge.Grid.prototype.set = function(row, col, value)
 {
-    if (typeof grid['row' + row] == 'undefined') {
-        grid['row' + row] = {};
+    if (typeof this.grid['row' + row] == 'undefined') {
+        this.grid['row' + row] = {};
     }
-    grid['row' + row]['col' + col] = value;
+    this.grid['row' + row]['col' + col] = value;
 };
