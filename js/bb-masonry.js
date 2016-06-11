@@ -35,8 +35,6 @@ Masonry.prototype._getItemLayoutPosition = function( item ) {
 
 Masonry.prototype._prepareGrid = function(items)
 {
-    var grid = new BigBridge.Grid();
-
     if (items.length < 2) {
         return;
     }
@@ -52,6 +50,8 @@ Masonry.prototype._prepareGrid = function(items)
 
     // copy the item array, since we are going to modify it
     var itemQueue = items.slice(0);
+
+    var grid = new BigBridge.Grid(layout.cols);
 
     // continue creation rows as long as there are items left
     for (var row = 0; itemQueue.length > 0; row++) {
@@ -138,13 +138,16 @@ Masonry.prototype._selectNextItem = function(itemQueue, grid, row, col, colCount
     if (item.element.className.match(/huge/)) {
 
         // determine if this is a good place for a huge diamond
-        var fit = (
+        var properColumnToStartHugeDiamond = (
             (col > 0) &&
             (col < (colCount - 1))
         );
 
+        // determine if there are enough columns to fit a huge diamond normally
+        var enoughColumnsForHugeDiamond = (colCount >= 3);
+
         // if this is a fitting position, or there are no fitting positions because there are too little columns
-        if (fit || (colCount < 3)) {
+        if (properColumnToStartHugeDiamond || !enoughColumnsForHugeDiamond) {
 
             // check if this huge diamond does not take the place of another huge diamond
             if (this._spaceForHugeDiamond(grid, row, col)) {
@@ -179,6 +182,17 @@ Masonry.prototype._selectNextItem = function(itemQueue, grid, row, col, colCount
         }
 
         // we failed to replace the huge diamond with a normal one
+
+        // can't we just wait until the next row, where there will be enough space?
+        if (enoughColumnsForHugeDiamond) {
+
+            // let's retry the same huge diamond later on
+            itemQueue.unshift(item);
+
+            // prepare an empty position here
+            return null;
+        }
+
         // there's not a lot we can do now; we must show the huge diamond at some point
 
         // let's at least make sure that our huge diamond doesn't overlap another one
@@ -230,10 +244,11 @@ Masonry.prototype._spaceForHugeDiamond = function(grid, row, col)
 
 /** ------ Grid ------ */
 
-BigBridge.Grid = function()
+BigBridge.Grid = function(colCount)
 {
     this.grid = {};
     this.height = 0;
+    this.colCount = colCount;
 };
 
 BigBridge.Grid.CLEARANCE = 'clearance';
@@ -260,6 +275,10 @@ BigBridge.Grid.prototype.isEmpty = function(row, col)
 
 BigBridge.Grid.prototype.set = function(row, col, value)
 {
+    if (col < 0 || col >= this.colCount) {
+        return;
+    }
+
     if (typeof this.grid['row' + row] == 'undefined') {
         this.grid['row' + row] = {};
     }
