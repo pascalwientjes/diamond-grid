@@ -118,6 +118,12 @@ Masonry.prototype._prepareGrid = function(items)
             item.position.x = col * itemWidth;
             item.position.y = row * itemHeight;
 
+            if (col % 2 == 0) {
+                jQuery(item.element).removeClass('odd');
+            } else {
+                jQuery(item.element).addClass('odd');
+            }
+
             // mark the position of the item
             grid.set(row, col, item);
 
