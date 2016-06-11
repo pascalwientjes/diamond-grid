@@ -69,7 +69,7 @@ Masonry.prototype._prepareGrid = function(items)
                 continue;
             }
 
-            var item = this._selectNextItem(itemQueue, col, layout.cols);
+            var item = this._selectNextItem(itemQueue, grid, row, col, layout.cols);
 
 
 // calculate its size
@@ -82,13 +82,15 @@ item.getSize();
                     // this huge diamond needs space to its left;
                     var leftNeighbour = grid.get(row, col - 1);
 
-                    // it cannot use the space of another huge diamond
-                    if (leftNeighbour == BigBridge.Grid.CLEARANCE) {
-                        continue;
-                    }
+                    if (leftNeighbour) {
 
-                    // we need to put the left neighbouring diamond back into the queue
-                    itemQueue.unshift(leftNeighbour);
+                        // it cannot use the space of another huge diamond
+                        if (leftNeighbour != BigBridge.Grid.CLEARANCE) {
+
+                            // we need to put the left neighbouring diamond back into the queue
+                            itemQueue.unshift(leftNeighbour);
+                        }
+                    }
 
                     // make space for the huge diamond
                     grid.set(row, col - 1, BigBridge.Grid.CLEARANCE);
@@ -123,7 +125,7 @@ item.getSize();
     }
 };
 
-Masonry.prototype._selectNextItem = function(itemQueue, col, colCount)
+Masonry.prototype._selectNextItem = function(itemQueue, grid, row, col, colCount)
 {
     // handle the next item in line
     var item = itemQueue.shift();
@@ -139,41 +141,63 @@ Masonry.prototype._selectNextItem = function(itemQueue, col, colCount)
         // if this is a fitting position, or there are no fitting positions because there are too little columns
         if (fit || (colCount < 3)) {
 
-            // we're done
-            return item;
-
-        } else {
-
-            // try the next diamond first
-
-            if (itemQueue.length > 0) {
-
-                var nextItem = itemQueue.shift();
-
-                // is this a normal diamond?
-                if (!nextItem.element.className.match(/huge/)) {
-
-                    // push the huge diamond further up the queue
-                    itemQueue.unshift(item);
-
-                    return nextItem;
-
-                } else {
-
-                    // return the big diamond
-                    itemQueue.unshift(nextItem);
-
-                }
+            if (this._spaceForHugeDiamond(grid, row, col)) {
+                // we're done
+                return item;
             }
-
-            // no luck: just return the unfitting huge diamond
-            return item;
         }
+
+        // try the next diamond first
+
+        if (itemQueue.length > 0) {
+
+            var nextItem = itemQueue.shift();
+
+            // is this a normal diamond?
+            if (!nextItem.element.className.match(/huge/)) {
+
+                // push the huge diamond further up the queue
+                itemQueue.unshift(item);
+
+                return nextItem;
+
+            } else {
+
+                // return the big diamond
+                itemQueue.unshift(nextItem);
+
+            }
+        }
+
+        // no luck: just return the unfitting huge diamond
+        return item;
 
     } else {
 
         // normal diamond is ok
         return item;
+
+    }
+};
+
+Masonry.prototype._spaceForHugeDiamond = function(grid, row, col)
+{
+    if (col % 2 == 0) {
+
+        var leftNeighbour = grid.get(row, col - 1);
+
+        return (
+            (leftNeighbour != BigBridge.Grid.CLEARANCE) &&
+            (!leftNeighbour.element.className.match(/huge/)) &&
+            grid.isEmpty(row, col + 1) &&
+            grid.isEmpty(row + 1, col));
+
+    } else {
+
+        return (
+            grid.isEmpty(row + 1, col - 1) &&
+            grid.isEmpty(row + 1, col) &&
+            grid.isEmpty(row + 1, col + 1));
 
     }
 };
@@ -196,6 +220,16 @@ BigBridge.Grid.prototype.get = function(row, col)
         }
     }
     return null;
+};
+
+BigBridge.Grid.prototype.isEmpty = function(row, col)
+{
+    if (typeof this.grid['row' + row] != 'undefined') {
+        if (this.grid['row' + row]['col' + col]) {
+            return false;
+        }
+    }
+    return true;
 };
 
 BigBridge.Grid.prototype.set = function(row, col, value)
