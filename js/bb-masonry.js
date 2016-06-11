@@ -69,27 +69,32 @@ Masonry.prototype._prepareGrid = function(items)
                 continue;
             }
 
+            // determine the next item: normal diamond, huge diamond, or none
             var item = this._selectNextItem(itemQueue, grid, row, col, layout.cols);
 
-
-// calculate its size
-item.getSize();
+            // if no suitable item could be found, just mark this position as taken
+            if (!item) {
+                grid.set(row, col, BigBridge.Grid.CLEARANCE);
+                continue;
+            }
 
             if (item.element.className.match(/huge/)) {
 
+                // diamond need to treated differently, depending on their column
+
                 if (col % 2 == 0) {
 
-                    // this huge diamond needs space to its left;
+                    // even column
+
+                    // this huge diamond needs space to its left
+                    // so if their is a neighbouring normal diamond, push it back into the queue
                     var leftNeighbour = grid.get(row, col - 1);
 
-                    if (leftNeighbour) {
+                    // one huge diamond cannot use the space of another huge diamond
+                    if (leftNeighbour && (leftNeighbour != BigBridge.Grid.CLEARANCE)) {
 
-                        // it cannot use the space of another huge diamond
-                        if (leftNeighbour != BigBridge.Grid.CLEARANCE) {
-
-                            // we need to put the left neighbouring diamond back into the queue
-                            itemQueue.unshift(leftNeighbour);
-                        }
+                        // we need to put the left neighbouring diamond back into the queue
+                        itemQueue.unshift(leftNeighbour);
                     }
 
                     // make space for the huge diamond
@@ -141,13 +146,16 @@ Masonry.prototype._selectNextItem = function(itemQueue, grid, row, col, colCount
         // if this is a fitting position, or there are no fitting positions because there are too little columns
         if (fit || (colCount < 3)) {
 
+            // check if this huge diamond does not take the place of another huge diamond
             if (this._spaceForHugeDiamond(grid, row, col)) {
                 // we're done
                 return item;
             }
         }
 
-        // try the next diamond first
+        // at this point we have a huge diamond that doesn't really fit, what to do?
+
+        // let's see if there's a normal diamond waiting next in line, so we can change places with it
 
         if (itemQueue.length > 0) {
 
@@ -159,17 +167,31 @@ Masonry.prototype._selectNextItem = function(itemQueue, grid, row, col, colCount
                 // push the huge diamond further up the queue
                 itemQueue.unshift(item);
 
+                // return the normal diamond
                 return nextItem;
 
             } else {
 
-                // return the big diamond
+                // no the next diamond is huge as well; return it to the queue
                 itemQueue.unshift(nextItem);
 
             }
         }
 
-        // no luck: just return the unfitting huge diamond
+        // we failed to replace the huge diamond with a normal one
+        // there's not a lot we can do now; we must show the huge diamond at some point
+
+        // let's at least make sure that our huge diamond doesn't overlap another one
+        if (!this._spaceForHugeDiamond(grid, row, col)) {
+
+            // it does! let's retry the same huge diamond later on
+            itemQueue.unshift(item);
+
+            // and prepare an empty position here
+            return null;
+        }
+
+        // return the unfitting, but not overlapping, huge diamond
         return item;
 
     } else {
@@ -186,9 +208,13 @@ Masonry.prototype._spaceForHugeDiamond = function(grid, row, col)
 
         var leftNeighbour = grid.get(row, col - 1);
 
+        var leftNeighbourOk = !leftNeighbour ||
+            (
+                (leftNeighbour != BigBridge.Grid.CLEARANCE) &&
+                (!leftNeighbour.element.className.match(/huge/)));
+
         return (
-            (leftNeighbour != BigBridge.Grid.CLEARANCE) &&
-            (!leftNeighbour.element.className.match(/huge/)) &&
+            leftNeighbourOk &&
             grid.isEmpty(row, col + 1) &&
             grid.isEmpty(row + 1, col));
 
