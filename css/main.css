@@ -16,6 +16,14 @@
 
 body {margin: 0; padding: 0;}
 
+.controls {
+    position: fixed;
+    padding: 20px;
+    background-color: #fff;
+    opacity: 0.9;
+    z-index: 100;
+}
+
 .grid-container {position: relative;}
 .bg-grid {
   background: #f2f2f2;
@@ -176,12 +184,14 @@ body {margin: 0; padding: 0;}
  .grid-item.huge .inner-diamond{
    width: 788px;
    height: 788px;
-   top: -105%;
-   left: -8%;
+     /** Patrick aan Pascal: zou je dit beter willen uitlijnen? */
+   top: 0;
+   left: -100%;
  }
  .grid-item.huge .button-container {
-  margin-top: 33%;
-  margin-left: -22%;
+/** Patrick aan Pascal: zou je dit beter willen uitlijnen? */
+  margin-top: 40%;
+  margin-left: -40%;
  }
 
   .grid-item .diamond img {

@@ -14,7 +14,7 @@
 
     </head>
     <!-- class='bare' for development -->
-    <body class='bare'>
+    <body class='bare1'>
         <div class="controls">
           <button onclick="addDiamond('')" class="append-button">New diamond</button>
           <button onclick="addHugeDiamond('')" class="new-huge">New Huge diamond</button>
@@ -380,7 +380,7 @@
           element = jQuery(element);
           jQuery('.grid').append(element).masonry( 'appended', element ).masonry('layout');
 
-        };
+        }
 
         function addHugeDiamond(className){
 
@@ -389,12 +389,7 @@
           var element = document.getElementById('huge1').cloneNode(true);
           element.id = '';
           element = jQuery(element);
-          grid.append(element).masonry( 'appended', element );
-
-//          element = document.getElementById('secondary1').cloneNode(true);
-//          element.id = '';
-//          element = jQuery(element);
-//          grid.append(element).masonry( 'appended', element ).masonry('layout');
+          grid.append(element).masonry( 'appended', element ).masonry('layout');
         }
 
         function addGridHover() {
@@ -414,31 +409,6 @@
             jQuery('.grid-item').removeClass('grid-hover')
           });
         }
-
-//if (0) {
-//  // create some stamps for the rest of the diamond
-//  //var stamp = document.createElement('div');
-//  var stamp = document.getElementById('stamp1');
-//  stamp.style.position = 'absolute';
-//  stamp.style.left = '300px';
-//  stamp.style.top = '300px';
-//  stamp.style.width = '200px';
-//  stamp.style.height = '100px';
-//  stamp.style['background-color'] = '#ff00ff';
-//  stamp.style['z-index'] = 100;
-//
-////        document.getElementById('small1').parentNode.insertBefore(stamp, document.getElementById('small1'))
-//
-////        jQuery('.grid').append(stamp);
-//
-//  stamp = jQuery(stamp);
-//
-//
-//  //      $grid.masonry('prepended', stamp);
-//  $grid.masonry('stamp', stamp);
-//
-//  $grid.masonry('layout');
-//}
 
         </script>
 
