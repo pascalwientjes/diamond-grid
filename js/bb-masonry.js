@@ -145,9 +145,13 @@ BigBridge.Jewelry.prototype.prepareGrid = function(items, itemWidth, itemHeight,
             item.position.y = row * itemHeight;
 
             if (col % 2 == 0) {
-                jQuery(item.element).removeClass('odd');
+                // remove 'odd' class
+                item.element.className = item.element.className.replace(new RegExp('(\\s|^)odd(\\s|$)'), ' ');
             } else {
-                jQuery(item.element).addClass('odd');
+                // add 'odd' class
+                if (!item.element.className.match(new RegExp('(\\s|^)odd(\\s|$)'))) {
+                    item.element.className += ' odd';
+                }
             }
 
             // mark the position of the item
