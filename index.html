@@ -16,6 +16,7 @@
     <!-- class='bare' for development -->
     <body class='bare1'>
         <div class="controls">
+          <button onclick="toggleStamper()">Toggle stamp</button>
           <button onclick="addDiamond('')" class="append-button">New diamond</button>
           <button onclick="addHugeDiamond('')" class="new-huge">New Huge diamond</button>
           <button onclick="toggleDevMode()">Toggle dev mode</button>
@@ -399,6 +400,21 @@
         function toggleDevMode()
         {
           jQuery(document.getElementsByTagName('body')[0]).toggleClass('bare');
+        }
+
+        var isStamped = false;
+
+        function toggleStamper()
+        {
+            isStamped = !isStamped;
+
+            if (isStamped) {
+                BigBridge.Jewelry.stamps = [{column: 4, row: 0}, {column: 1}, {row: 3}];
+            } else {
+                BigBridge.Jewelry.stamps = [];
+            }
+
+            $grid.masonry('layout');
         }
 
         jQuery('.grid-item .diamond').mouseenter(addGridHover);

@@ -14,6 +14,16 @@ BigBridge.Jewelry = function()
 /** A reference to a Masonry function that will be overwritten, and will need to call its parent function */
 BigBridge.Jewelry.masonry_layoutItems = Masonry.prototype._layoutItems;
 
+/**
+ * This array may contains empty places in the grid; and can be set by the application
+ *
+ * Possible elements:
+ * { row: 3, column: 4 } // create a clearance at (3, 4)
+ * { column: 2 }         // clears column 2
+ * { row: 6 }            // clears row 6
+ */
+BigBridge.Jewelry.stamps = [];
+
 
 /** Replace some of Masonry's functions */
 
@@ -34,13 +44,16 @@ Masonry.prototype._layoutItems = function(items, isInstant)
 
         var itemWidth = sampleItem.size.outerWidth;
         var itemHeight = sampleItem.size.outerHeight;
+        var columnCount = this.cols;
 
         var jewelry = new BigBridge.Jewelry();
 
-        var grid = jewelry.prepareGrid(items, itemWidth, itemHeight, this.cols);
+        var grid = new BigBridge.Grid(columnCount);
+
+        jewelry.prepareGrid(items, itemWidth, itemHeight, grid, columnCount);
 
         // update the heights of the columns
-        for (var columnIndex = 0; columnIndex < this.cols; columnIndex++) {
+        for (var columnIndex = 0; columnIndex < columnCount; columnIndex++) {
             this.colYs[columnIndex] = grid.getHeight() * itemHeight;
         }
     }
@@ -55,7 +68,7 @@ Masonry.prototype._layoutItems = function(items, isInstant)
  */
 Masonry.prototype._getItemLayoutPosition = function(item)
 {
-    // the items's position was precalculated (in _layoutItems)
+    // the items's position was pre-calculated (in _layoutItems)
     // we just need to return it here
     return item.position;
 };
@@ -70,22 +83,25 @@ Masonry.prototype._getItemLayoutPosition = function(item)
  * @param items [{}]
  * @param itemWidth int
  * @param itemHeight int
- * @param columnCount int
+ * @param grid BigBridge.Grid
  */
-BigBridge.Jewelry.prototype.prepareGrid = function(items, itemWidth, itemHeight, columnCount)
+BigBridge.Jewelry.prototype.prepareGrid = function(items, itemWidth, itemHeight, grid)
 {
     // copy the item array, since we are going to modify it
     var itemQueue = items.slice(0);
-
-    var grid = new BigBridge.Grid(columnCount);
 
     // continue creation rows as long as there are items left
     for (var row = 0; itemQueue.length > 0; row++) {
 
         // the number of columns is a given
-        for (var col = 0; col < columnCount; col++) {
+        for (var col = 0; col < grid.getColumnCount(); col++) {
 
-            // is this position blocked?
+            if (this.positionIsStamped(row, col)) {
+                grid.set(row, col, BigBridge.Grid.CLEARANCE);
+                continue;
+            }
+
+            // is this position blocked before?
             if (grid.get(row, col) == BigBridge.Grid.CLEARANCE) {
                 continue;
             }
@@ -96,7 +112,7 @@ BigBridge.Jewelry.prototype.prepareGrid = function(items, itemWidth, itemHeight,
             }
 
             // determine the next item: normal diamond, huge diamond, or none
-            var item = this.selectNextItem(itemQueue, grid, row, col, columnCount);
+            var item = this.selectNextItem(itemQueue, grid, row, col, grid.getColumnCount());
 
             // if no suitable item could be found, just mark this position as taken
             if (!item) {
@@ -159,8 +175,26 @@ BigBridge.Jewelry.prototype.prepareGrid = function(items, itemWidth, itemHeight,
 
         }
     }
+};
 
-    return grid;
+BigBridge.Jewelry.prototype.positionIsStamped = function(row, col)
+{
+    var stamped = false;
+
+    for (var r = 0; r < BigBridge.Jewelry.stamps.length; r++) {
+
+        var rule = BigBridge.Jewelry.stamps[r];
+
+        if (typeof rule.column != 'undefined' && typeof rule.row != 'undefined') {
+            stamped = stamped || ((rule.column == col) && (rule.row == row));
+        } else if (typeof rule.column != 'undefined') {
+            stamped = stamped || (rule.column == col);
+        } else if (typeof rule.row != 'undefined') {
+            stamped = stamped || (rule.row == row);
+        }
+    }
+
+    return stamped;
 };
 
 BigBridge.Jewelry.prototype.selectNextItem = function(itemQueue, grid, row, col, colCount)
@@ -324,4 +358,9 @@ BigBridge.Grid.prototype.set = function(row, col, value)
 BigBridge.Grid.prototype.getHeight = function()
 {
     return this.height;
+};
+
+BigBridge.Grid.prototype.getColumnCount = function()
+{
+    return this.colCount;
 };
