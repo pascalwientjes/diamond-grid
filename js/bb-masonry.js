@@ -1,13 +1,22 @@
 BigBridge = window.BigBridge || {};
 
 /**
- * Masonry extension for diamond grid layout
+ * Jewelry: A Masonry extension for the diamond grid layout
  *
  * @author Pascal Wientjes (Concept, HTML, CSS)
  * @author Patrick van Bergen (Javascript)
  */
 
-Masonry.prototype.parent_layoutItems = Masonry.prototype._layoutItems;
+BigBridge.Jewelry = function()
+{
+};
+
+/** A reference to a Masonry function that will be overwritten, and will need to call its parent function */
+BigBridge.Jewelry.masonry_layoutItems = Masonry.prototype._layoutItems;
+
+
+/** Replace some of Masonry's functions */
+
 
 /**
  * An override of Masonry's layout function.
@@ -16,9 +25,27 @@ Masonry.prototype.parent_layoutItems = Masonry.prototype._layoutItems;
  */
 Masonry.prototype._layoutItems = function(items, isInstant)
 {
-    this._prepareGrid(items);
+    if (items.length > 1) {
 
-    return Masonry.prototype.parent_layoutItems.apply(this, [items, isInstant]);
+        // all items have same size, so pick any item for its properties
+        var sampleItem = items[0];
+
+        sampleItem.getSize();
+
+        var itemWidth = sampleItem.size.outerWidth;
+        var itemHeight = sampleItem.size.outerHeight;
+
+        var jewelry = new BigBridge.Jewelry();
+
+        var grid = jewelry.prepareGrid(items, itemWidth, itemHeight, this.cols);
+
+        // update the heights of the columns
+        for (var columnIndex = 0; columnIndex < this.cols; columnIndex++) {
+            this.colYs[columnIndex] = grid.getHeight() * itemHeight;
+        }
+    }
+
+    return BigBridge.Jewelry.masonry_layoutItems.apply(this, [items, isInstant]);
 };
 
 /**
@@ -26,38 +53,37 @@ Masonry.prototype._layoutItems = function(items, isInstant)
  *
  * Applies the prepared positions of all elements.
  */
-Masonry.prototype._getItemLayoutPosition = function( item ) {
-
-    // the items's position was precalculated (in _prepareGrid)
+Masonry.prototype._getItemLayoutPosition = function(item)
+{
+    // the items's position was precalculated (in _layoutItems)
     // we just need to return it here
     return item.position;
 };
 
-Masonry.prototype._prepareGrid = function(items)
+
+/** Jewelry */
+
+
+/**
+ * Sets the position of al items, according to the layout rules of the diamond grid.
+ *
+ * @param items [{}]
+ * @param itemWidth int
+ * @param itemHeight int
+ * @param columnCount int
+ */
+BigBridge.Jewelry.prototype.prepareGrid = function(items, itemWidth, itemHeight, columnCount)
 {
-    if (items.length < 2) {
-        return;
-    }
-
-    // all items have same size, so pick any item for its properties
-    var sampleItem = items[0];
-
-    sampleItem.getSize();
-
-    var layout = sampleItem.layout;
-    var itemWidth = sampleItem.size.outerWidth;
-    var itemHeight = sampleItem.size.outerHeight;
-
     // copy the item array, since we are going to modify it
     var itemQueue = items.slice(0);
 
-    var grid = new BigBridge.Grid(layout.cols);
+    var grid = new BigBridge.Grid(columnCount);
 
     // continue creation rows as long as there are items left
     for (var row = 0; itemQueue.length > 0; row++) {
 
         // the number of columns is a given
-        for (var col = 0; col < layout.cols; col++) {
+        for (var col = 0; col < columnCount; col++) {
 
             // is this position blocked?
             if (grid.get(row, col) == BigBridge.Grid.CLEARANCE) {
@@ -70,7 +96,7 @@ Masonry.prototype._prepareGrid = function(items)
             }
 
             // determine the next item: normal diamond, huge diamond, or none
-            var item = this._selectNextItem(itemQueue, grid, row, col, layout.cols);
+            var item = this.selectNextItem(itemQueue, grid, row, col, columnCount);
 
             // if no suitable item could be found, just mark this position as taken
             if (!item) {
@@ -130,13 +156,10 @@ Masonry.prototype._prepareGrid = function(items)
         }
     }
 
-    // update the heights of the columns
-    for (var columnIndex = 0; columnIndex < layout.cols; columnIndex++) {
-        this.colYs[columnIndex] = grid.getHeight() * itemHeight;
-    }
+    return grid;
 };
 
-Masonry.prototype._selectNextItem = function(itemQueue, grid, row, col, colCount)
+BigBridge.Jewelry.prototype.selectNextItem = function(itemQueue, grid, row, col, colCount)
 {
     // handle the next item in line
     var item = itemQueue.shift();
@@ -156,7 +179,7 @@ Masonry.prototype._selectNextItem = function(itemQueue, grid, row, col, colCount
         if (properColumnToStartHugeDiamond || !enoughColumnsForHugeDiamond) {
 
             // check if this huge diamond does not take the place of another huge diamond
-            if (this._spaceForHugeDiamond(grid, row, col)) {
+            if (this.spaceForHugeDiamond(grid, row, col)) {
                 // we're done
                 return item;
             }
@@ -202,7 +225,7 @@ Masonry.prototype._selectNextItem = function(itemQueue, grid, row, col, colCount
         // there's not a lot we can do now; we must show the huge diamond at some point
 
         // let's at least make sure that our huge diamond doesn't overlap another one
-        if (!this._spaceForHugeDiamond(grid, row, col)) {
+        if (!this.spaceForHugeDiamond(grid, row, col)) {
 
             // it does! let's retry the same huge diamond later on
             itemQueue.unshift(item);
@@ -222,7 +245,7 @@ Masonry.prototype._selectNextItem = function(itemQueue, grid, row, col, colCount
     }
 };
 
-Masonry.prototype._spaceForHugeDiamond = function(grid, row, col)
+BigBridge.Jewelry.prototype.spaceForHugeDiamond = function(grid, row, col)
 {
     if (col % 2 == 0) {
 
@@ -248,7 +271,9 @@ Masonry.prototype._spaceForHugeDiamond = function(grid, row, col)
     }
 };
 
-/** ------ Grid ------ */
+
+/** Grid */
+
 
 BigBridge.Grid = function(colCount)
 {

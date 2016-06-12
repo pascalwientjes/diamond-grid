@@ -12,6 +12,8 @@
     font-style: normal;
 }
 
+/* Page */
+
 body {margin: 0; padding: 0;}
 
 .controls {
@@ -21,6 +23,8 @@ body {margin: 0; padding: 0;}
     opacity: 0.9;
     z-index: 100;
 }
+
+/* Grid */
 
 .grid-container {position: relative;}
 .bg-grid {
@@ -34,6 +38,8 @@ body {margin: 0; padding: 0;}
 .over-grid {width: 100%; overflow: hidden;}
 .grid {margin: 120px -120px 200px 120px;}
 
+/* Grid item - position */
+
 .grid-item {
   width: 200px;
   height: 246px;
@@ -41,6 +47,17 @@ body {margin: 0; padding: 0;}
   box-sizing: border-box;
   z-index: 1;
  }
+
+.grid-item.huge .diamond {
+  margin-top: 55px;
+  margin-left: -138px;
+}
+
+.grid-item.odd {
+  margin-top: 197px;
+}
+
+/* Grid item - visual */
 
  .grid-item .diamond {
    width: 278.3172291px;
@@ -229,15 +246,6 @@ body {margin: 0; padding: 0;}
             transform: translate(-50%, -71%) rotate(45deg);
   }
 
-.grid-item.huge .diamond {
-    margin-top: 55px;
-    margin-left: -138px;
-}
-
-.grid-item.odd {
-    margin-top: 197px;
-}
-
 /*BUTTON STYLES*/
 
  a.button {
@@ -349,7 +357,7 @@ body {margin: 0; padding: 0;}
 
 .no-cssfilters .grid-hover.grid-item .img-container img {opacity: 0.1;}
 
-/** Patrick: development code (aanzetten met class 'bare' op de body) */
+/* Development code (via class 'bare' on body) */
 
 body.bare .diamond, body.bare .inner-diamond, body.bare .button-container {
     display: none !important;
@@ -358,10 +366,9 @@ body.bare .diamond, body.bare .inner-diamond, body.bare .button-container {
 body.bare .grid-item {
     border: 1px solid #000;
     background-color: green;
+    margin-top: 0;
 }
 
 body.bare .grid-item.huge {
     background-color: red;
 }
-
-/** end Patrick: */
