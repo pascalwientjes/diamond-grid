@@ -15,12 +15,15 @@ BigBridge.Jewelry = function()
 BigBridge.Jewelry.masonry_layoutItems = Masonry.prototype._layoutItems;
 
 /**
- * This array may contains empty places in the grid; and can be set by the application
+ * Jewelry only supports its own kind of stamps: these are not DOM elements, but (x, y) positions in the diamond grid
+ * This array contains the empty places in the grid; and can be set by the application
  *
- * Possible elements:
- * { row: 3, column: 4 } // create a clearance at (3, 4)
- * { column: 2 }         // clears column 2
- * { row: 6 }            // clears row 6
+ * Either 'row' or 'endRow' is required;
+ * column, startColumn and endColumn are optional
+ *
+ * Examples:
+ * { row: 3, startColumn: 4 }   // at row 3, create a clearance in columns 4 and up
+ * { endRow 1, endColumn: 2 }   // at rows up to 1, clears columns up to 2
  */
 BigBridge.Jewelry.stamps = [];
 
@@ -179,22 +182,46 @@ BigBridge.Jewelry.prototype.prepareGrid = function(items, itemWidth, itemHeight,
 
 BigBridge.Jewelry.prototype.positionIsStamped = function(row, col)
 {
-    var stamped = false;
-
     for (var r = 0; r < BigBridge.Jewelry.stamps.length; r++) {
 
         var rule = BigBridge.Jewelry.stamps[r];
+        var fires = true;
 
-        if (typeof rule.column != 'undefined' && typeof rule.row != 'undefined') {
-            stamped = stamped || ((rule.column == col) && (rule.row == row));
-        } else if (typeof rule.column != 'undefined') {
-            stamped = stamped || (rule.column == col);
-        } else if (typeof rule.row != 'undefined') {
-            stamped = stamped || (rule.row == row);
+        // row or endRow
+        if (typeof rule.row != 'undefined') {
+            fires = fires && (row == rule.row);
+        } else if (typeof rule.endRow != 'undefined') {
+            fires = fires && (row <= rule.endRow);
+        } else {
+            throw new Error('Missing field in stamp: row or endRow');
+        }
+
+        // predictable error
+        if (typeof rule.startRow != 'undefined') {
+            throw new Error('Deliberately unsupported field in stamp: startRow');
+        }
+
+        // column
+        if (typeof rule.column != 'undefined') {
+            fires = fires && (col == rule.column);
+        }
+
+        // startColumn
+        if (typeof rule.startColumn != 'undefined') {
+            fires = fires && (col >= rule.startColumn);
+        }
+
+        // endColumn
+        if (typeof rule.endColumn != 'undefined') {
+            fires = fires && (col <= rule.endColumn);
+        }
+
+        if (fires) {
+            return true;
         }
     }
 
-    return stamped;
+    return false;
 };
 
 BigBridge.Jewelry.prototype.selectNextItem = function(itemQueue, grid, row, col, colCount)

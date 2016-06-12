@@ -409,7 +409,7 @@
             isStamped = !isStamped;
 
             if (isStamped) {
-                BigBridge.Jewelry.stamps = [{column: 4, row: 0}, {column: 1}, {row: 3}];
+                BigBridge.Jewelry.stamps = [{row: 0, column: 0}, {row: 0, startColumn: 4}, {column: 4, endRow: 10}];
             } else {
                 BigBridge.Jewelry.stamps = [];
             }
