@@ -51,7 +51,7 @@ Masonry.prototype._layoutItems = function(items, isInstant)
 
         var jewelry = new BigBridge.Jewelry();
 
-        var grid = new BigBridge.Grid(columnCount);
+        var grid = new BigBridge.Grid(columnCount, BigBridge.Jewelry.stamps);
 
         jewelry.prepareGrid(items, itemWidth, itemHeight, grid, columnCount);
 
@@ -99,12 +99,7 @@ BigBridge.Jewelry.prototype.prepareGrid = function(items, itemWidth, itemHeight,
         // the number of columns is a given
         for (var col = 0; col < grid.getColumnCount(); col++) {
 
-            if (this.positionIsStamped(row, col)) {
-                grid.set(row, col, BigBridge.Grid.CLEARANCE);
-                continue;
-            }
-
-            // is this position blocked before?
+            // is this position blocked?
             if (grid.get(row, col) == BigBridge.Grid.CLEARANCE) {
                 continue;
             }
@@ -178,50 +173,6 @@ BigBridge.Jewelry.prototype.prepareGrid = function(items, itemWidth, itemHeight,
 
         }
     }
-};
-
-BigBridge.Jewelry.prototype.positionIsStamped = function(row, col)
-{
-    for (var r = 0; r < BigBridge.Jewelry.stamps.length; r++) {
-
-        var rule = BigBridge.Jewelry.stamps[r];
-        var fires = true;
-
-        // row or endRow
-        if (typeof rule.row != 'undefined') {
-            fires = fires && (row == rule.row);
-        } else if (typeof rule.endRow != 'undefined') {
-            fires = fires && (row <= rule.endRow);
-        } else {
-            throw new Error('Missing field in stamp: row or endRow');
-        }
-
-        // predictable error
-        if (typeof rule.startRow != 'undefined') {
-            throw new Error('Deliberately unsupported field in stamp: startRow');
-        }
-
-        // column
-        if (typeof rule.column != 'undefined') {
-            fires = fires && (col == rule.column);
-        }
-
-        // startColumn
-        if (typeof rule.startColumn != 'undefined') {
-            fires = fires && (col >= rule.startColumn);
-        }
-
-        // endColumn
-        if (typeof rule.endColumn != 'undefined') {
-            fires = fires && (col <= rule.endColumn);
-        }
-
-        if (fires) {
-            return true;
-        }
-    }
-
-    return false;
 };
 
 BigBridge.Jewelry.prototype.selectNextItem = function(itemQueue, grid, row, col, colCount)
@@ -316,10 +267,9 @@ BigBridge.Jewelry.prototype.spaceForHugeDiamond = function(grid, row, col)
 
         var leftNeighbour = grid.get(row, col - 1);
 
-        var leftNeighbourOk = !leftNeighbour ||
-            (
-                (leftNeighbour != BigBridge.Grid.CLEARANCE) &&
-                (!leftNeighbour.element.className.match(/huge/)));
+        var leftNeighbourOk =
+            !leftNeighbour ||
+            (leftNeighbour.element && !leftNeighbour.element.className.match(/huge/));
 
         return (
             leftNeighbourOk &&
@@ -340,11 +290,12 @@ BigBridge.Jewelry.prototype.spaceForHugeDiamond = function(grid, row, col)
 /** Grid */
 
 
-BigBridge.Grid = function(colCount)
+BigBridge.Grid = function(colCount, stamps)
 {
     this.grid = {};
     this.height = 0;
     this.colCount = colCount;
+    this.stamps = stamps;
 };
 
 BigBridge.Grid.CLEARANCE = 'clearance';
@@ -356,17 +307,64 @@ BigBridge.Grid.prototype.get = function(row, col)
             return this.grid['row' + row]['col' + col];
         }
     }
+
+    // check if the position is stamped by one of the rules
+    if (this.positionIsStamped(row, col)) {
+        // store this information
+        this.set(row, col, BigBridge.Grid.CLEARANCE);
+        return BigBridge.Grid.CLEARANCE;
+    }
+
     return null;
+};
+
+BigBridge.Grid.prototype.positionIsStamped = function(row, col)
+{
+    for (var r = 0; r < this.stamps.length; r++) {
+
+        var rule = this.stamps[r];
+        var fires = true;
+
+        // row or endRow
+        if (typeof rule.row != 'undefined') {
+            fires = fires && (row == rule.row);
+        } else if (typeof rule.endRow != 'undefined') {
+            fires = fires && (row <= rule.endRow);
+        } else {
+            throw new Error('Missing field in stamp: row or endRow');
+        }
+
+        // predictable error
+        if (typeof rule.startRow != 'undefined') {
+            throw new Error('Deliberately unsupported field in stamp: startRow');
+        }
+
+        // column
+        if (typeof rule.column != 'undefined') {
+            fires = fires && (col == rule.column);
+        }
+
+        // startColumn
+        if (typeof rule.startColumn != 'undefined') {
+            fires = fires && (col >= rule.startColumn);
+        }
+
+        // endColumn
+        if (typeof rule.endColumn != 'undefined') {
+            fires = fires && (col <= rule.endColumn);
+        }
+
+        if (fires) {
+            return true;
+        }
+    }
+
+    return false;
 };
 
 BigBridge.Grid.prototype.isEmpty = function(row, col)
 {
-    if (typeof this.grid['row' + row] != 'undefined') {
-        if (this.grid['row' + row]['col' + col]) {
-            return false;
-        }
-    }
-    return true;
+    return this.get(row, col) === null;
 };
 
 BigBridge.Grid.prototype.set = function(row, col, value)
