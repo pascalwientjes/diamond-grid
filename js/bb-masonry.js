@@ -42,11 +42,12 @@ Masonry.prototype._layoutItems = function(items, isInstant)
 
         // all items have same size, so pick any item for its properties
         var sampleItem = items[0];
+        var size = getSize(sampleItem.element);
 
-        sampleItem.getSize();
+        var itemWidth = size.outerWidth;
+        // marginTop is non-zero when the first item has class 'odd'
+        var itemHeight = size.outerHeight - size.marginTop;
 
-        var itemWidth = sampleItem.size.outerWidth;
-        var itemHeight = sampleItem.size.outerHeight;
         var columnCount = this.cols;
 
         var jewelry = new BigBridge.Jewelry();
