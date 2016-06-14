@@ -41,7 +41,7 @@ body {margin: 0; padding: 0;}
 /* Grid item - position */
 
 .grid-item {
-  width: 200px;
+  width: 196px;
   height: 246px;
   margin-bottom: 147.6px;
   box-sizing: border-box;
@@ -60,8 +60,8 @@ body {margin: 0; padding: 0;}
 /* Grid item - visual */
 
  .grid-item .diamond {
-   width: 278.3172291px;
-   height: 278.3172291px;
+   width: 278px;
+   height: 278px;
    -webkit-transform: rotate(-45deg);
        -ms-transform: rotate(-45deg);
         -o-transform: rotate(-45deg);
@@ -71,7 +71,7 @@ body {margin: 0; padding: 0;}
     position: relative;
 
     border: 5px solid #f2f2f2;
-    outline: 4px solid #f2f2f2;
+    outline: 5px solid #f2f2f2;
     -webkit-backface-visibility: hidden;
        -moz-backface-visibility: hidden;
         -ms-backface-visibility: hidden;
@@ -86,6 +86,8 @@ body {margin: 0; padding: 0;}
   width: 556.6344582px;
   height: 556.6344582px;
  }
+
+ .grid-item.huge.odd {margin-top: 199px;}
 
   .grid-item.grid-hover:not(.your-project) .diamond {
     -webkit-backface-visibility: visible;
@@ -148,7 +150,7 @@ body {margin: 0; padding: 0;}
     .grid-item .diamond-content .diamond-exerpt {
       font-family: 'Lato', Arial, Helvetica, sans-serif;
       font-style: italic;
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 300;
       color: #fff;
       width: 80%;
@@ -167,17 +169,17 @@ body {margin: 0; padding: 0;}
     width: 394px;
     height: 394px;
     position: absolute;
-    top: -22%;
-    left: -22%;
+    top: -23%;
+    left: -28%;
  }
   .grid-item .button-container {
     display: inline-block;
     left: 50%;
     top: 0;
     opacity: 0;
-    margin-top: 76%;
+    margin-top: 96%;
     position: absolute;
-    margin-left: -65px;
+    margin-left: -38px;
     -webkit-transition: opacity 0.3s ease-out 0.2s;
          -o-transition: opacity 0.3s ease-out 0.2s;
             transition: opacity 0.3s ease-out 0.2s;
@@ -188,13 +190,11 @@ body {margin: 0; padding: 0;}
  .grid-item.huge .inner-diamond{
    width: 788px;
    height: 788px;
-     /** Patrick aan Pascal: zou je dit beter willen uitlijnen? */
-   top: 0;
-   left: -100%;
+   top: -25%;
+   left: -130%;
  }
  .grid-item.huge .button-container {
-/** Patrick aan Pascal: zou je dit beter willen uitlijnen? */
-  margin-top: 40%;
+  margin-top: 235%;
   margin-left: -40%;
  }
 
@@ -371,4 +371,5 @@ body.bare .grid-item {
 
 body.bare .grid-item.huge {
     background-color: red;
+    margin-top: 0px;
 }
