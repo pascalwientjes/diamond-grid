@@ -1,317 +1,376 @@
-/*! HTML5 Boilerplate v5.3.0 | MIT License | https://html5boilerplate.com/ */
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic,900,900italic);
+@import url("icomoon.css");
 
-/*
- * What follows is the result of much research on cross-browser styling.
- * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
- * Kroc Camen, and the H5BP dev community and team.
- */
-
-/* ==========================================================================
-   Base styles: opinionated defaults
-   ========================================================================== */
-
-html {
-    color: #222;
-    font-size: 1em;
-    line-height: 1.4;
+@font-face {
+    font-family: 'icomoon';
+    src:    url('../fonts/icomoon.eot?cgucyu');
+    src:    url('../fonts/icomoon.eot?cgucyu#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?cgucyu') format('truetype'),
+        url('../fonts/icomoon.woff?cgucyu') format('woff'),
+        url('../fonts/icomoon.svg?cgucyu#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
-/*
- * Remove text-shadow in selection highlight:
- * https://twitter.com/miketaylr/status/12228805301
- *
- * These selection rule sets have to be separate.
- * Customize the background color to match your design.
- */
+/* Page */
 
-::-moz-selection {
-    background: #b3d4fc;
-    text-shadow: none;
+body {margin: 0; padding: 0;}
+
+.controls {
+    position: fixed;
+    padding: 20px;
+    background-color: #fff;
+    opacity: 0.9;
+    z-index: 100;
 }
 
-::selection {
-    background: #b3d4fc;
-    text-shadow: none;
+/* Grid */
+
+.grid-container {position: relative;}
+.bg-grid {
+  background: #f2f2f2;
+  position: absolute;
+  top: 258px;
+  left: 0;
+  right: 0;
+  bottom: 100px;
+}
+.over-grid {width: 100%; overflow: hidden;}
+.grid {margin: 120px -120px 200px 120px;}
+
+/* Grid item - position */
+
+.grid-item {
+  width: 196px;
+  height: 246px;
+  margin-bottom: 147.6px;
+  box-sizing: border-box;
+  z-index: 1;
+ }
+
+.grid-item.huge .diamond {
+  margin-top: 55px;
+  margin-left: -138px;
 }
 
-/*
- * A better looking default horizontal rule
- */
-
-hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em 0;
-    padding: 0;
+.grid-item.odd {
+  margin-top: 197px;
 }
 
-/*
- * Remove the gap between audio, canvas, iframes,
- * images, videos and the bottom of their containers:
- * https://github.com/h5bp/html5-boilerplate/issues/440
- */
+/* Grid item - visual */
 
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
+ .grid-item .diamond {
+   width: 278px;
+   height: 278px;
+   -webkit-transform: rotate(-45deg);
+       -ms-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+           transform: rotate(-45deg);
+    overflow: hidden;
+    box-sizing: border-box;
+    position: relative;
+
+    border: 5px solid #f2f2f2;
+    outline: 5px solid #f2f2f2;
+    -webkit-backface-visibility: hidden;
+       -moz-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+            backface-visibility: hidden;
+ }
+  .grid-item .img-container {
+    background: rgb(23,28,38);
+  }
+
+
+ .grid-item.huge .diamond {
+  width: 556.6344582px;
+  height: 556.6344582px;
+ }
+
+ .grid-item.huge.odd {margin-top: 199px;}
+
+  .grid-item.grid-hover:not(.your-project) .diamond {
+    -webkit-backface-visibility: visible;
+       -moz-backface-visibility: visible;
+        -ms-backface-visibility: visible;
+            backface-visibility: visible;
+  }
+
+  .grid-item .inner-diamond {
+    opacity: 0;
+    pointer-events: none;
+    -webkit-transition: opacity 0.3s ease-out 0.2s;
+         -o-transition: opacity 0.3s ease-out 0.2s;
+            transition: opacity 0.3s ease-out 0.2s;
+  }
+  .grid-item.grid-hover .inner-diamond{opacity: 1;}
+  .grid-item .diamond-content {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-transition: opacity 0.3s ease-out 0.2s;
+         -o-transition: opacity 0.3s ease-out 0.2s;
+            transition: opacity 0.3s ease-out 0.2s;
+  }
+  .grid-item .diamond-content .diamond-logo {
+    width: 200px;
+    height: 80px;
+    position: relative;
+    left: 50%;
+    margin-top: 25%;
+    margin-left: -104px;
+  }
+
+  .grid-item .diamond-content .diamond-logo img {width: 100%;}
+
+  .grid-item .diamond-content .no-logo {
+    width: 200px;
+    height: 80px;
+    position: relative;
+    left: 50%;
+    margin-top: 25%;
+    margin-left: -104px;
+    font-family: 'Lato', Arial, Helvetica, sans-serif;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 80px;
+    text-align: center;
+  }
+
+  .grid-item.huge .diamond-content .diamond-logo {
+
+    width: 400px;
+    height: 160px;
+    margin-left: -200px;
+  }
+
+    .grid-item .diamond-content .diamond-exerpt {
+      font-family: 'Lato', Arial, Helvetica, sans-serif;
+      font-style: italic;
+      font-size: 16px;
+      font-weight: 300;
+      color: #fff;
+      width: 80%;
+      margin: 2% 11% 5% 9%;
+      text-align: center;
+    }
+    .grid-item.huge .diamond-content .diamond-exerpt {
+      font-size: 27px;
+      margin: 5% 10%;
+    }
+
+    .grid-item .diamond-content .diamond-exerpt:before {content: "\201C"}
+    .grid-item .diamond-content .diamond-exerpt:after {content: "\201D"}
+
+ .grid-item  .inner-diamond{
+    width: 394px;
+    height: 394px;
+    position: absolute;
+    top: -23%;
+    left: -28%;
+ }
+  .grid-item .button-container {
+    display: inline-block;
+    left: 50%;
+    top: 0;
+    opacity: 0;
+    margin-top: 96%;
+    position: absolute;
+    margin-left: -38px;
+    -webkit-transition: opacity 0.3s ease-out 0.2s;
+         -o-transition: opacity 0.3s ease-out 0.2s;
+            transition: opacity 0.3s ease-out 0.2s;
+  }
+  .grid-item.grid-hover .button-container {
+    opacity: 1;
+  }
+ .grid-item.huge .inner-diamond{
+   width: 788px;
+   height: 788px;
+   top: -25%;
+   left: -130%;
+ }
+ .grid-item.huge .button-container {
+  margin-top: 235%;
+  margin-left: -40%;
+ }
+
+  .grid-item .diamond img {
+    width: 100%;
+    -webkit-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+         -o-transform: translateZ(0);
+            transform: translateZ(0);
+    -webkit-transition: all 0.3s;
+         -o-transition: all 0.3s;
+            transition: all 0.3s;
+  }
+  .grid-item .diamond .img-container {
+    width: 394px;
+    height: 394px;
+    position: relative;
+    top: -22%;
+    left: -22%;
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+         -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  .grid-item.huge .diamond .img-container {width: 788px; height: 788px; }
+  .grid-item.grid-hover .img-container img {
+    opacity: 0.4;
+    width: 110%;
+    margin-top: -5%;
+    margin-left: -5%;
+    -webkit-filter: blur(10px);
+         -o-filter: blur(10px);
+            filter: blur(10px);
+  }
+
+  .grid-item.your-project .diamond {background: #ee7600;}
+  .grid-item.your-project .diamond p {
+    font-family: 'Lato', Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 38px;
+    color: #fff;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -71%) rotate(45deg);
+        -ms-transform: translate(-50%, -71%) rotate(45deg);
+         -o-transform: translate(-50%, -71%) rotate(45deg);
+            transform: translate(-50%, -71%) rotate(45deg);
+  }
+
+/*BUTTON STYLES*/
+
+ a.button {
+   font-family: 'Lato', Arial, Helvetica, sans-serif;
+   font-weight: 300;
+   border-color:#fff;
+   box-sizing: border-box;
+   display: block;
+   width: 160px;
+   overflow: hidden;
+   padding: 0;
+   font-size: 18px;
+   position: relative;;
+   top: 0;
+   text-decoration: none;
+   color: #fff;
+   height: 40px;
+   text-align: center;
+ }
+
+  a.button i {
+    position: absolute;
+    display: inline-block;
+    left: 0;
+    width: 100%;
+    top: 6px;
+    margin-top: 0;
+    -webkit-transition: margin-top 0.3s;
+            transition: margin-top 0.3s;
+    -webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+            transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
     vertical-align: middle;
-}
+  }
+  .huge a.button i {top: 0;}
+        a.button:hover i {margin-top: 40px;}
+  .huge a.button:hover i {margin-top: 56px;}
 
-/*
- * Remove default fieldset styles.
- */
+  a.button span {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-top: -56px;
+    -webkit-transition: margin-top 0.3s;
+            transition: margin-top 0.3s;
+    -webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+            transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+  }
+  a.button:hover span {margin-top: 0;}
 
-fieldset {
-    border: 0;
-    margin: 0;
-    padding: 0;
-}
+  a.button span:before {
+    padding-right: 10px;
+    margin: 0 -20px 0 0;
+    content: "<";
+    opacity: 0;
+    color: #EE7600;
+    display: inline-block;
+    -webkit-transition: margin 0.3s 0.2s, opacity 0.2s 0.2s;
+         -o-transition: margin 0.3s 0.2s, opacity 0.2s 0.2s;
+            transition: margin 0.3s 0.2s, opacity 0.2s 0.2s;
 
-/*
- * Allow only vertical resizing of textareas.
- */
+  }
+  a.button span:after {
+    padding-left: 10px;
+    margin: 0 0 0 -20px;
+    content: "/>";
+    opacity: 0;
+    color: #EE7600;
+    display: inline-block;
+    -webkit-transition: margin 0.3s 0.2s, opacity 0.2s 0.2s;
+         -o-transition: margin 0.3s 0.2s, opacity 0.2s 0.2s;
+            transition: margin 0.3s 0.2s, opacity 0.2s 0.2s;
 
-textarea {
-    resize: vertical;
-}
+  }
+  a.button:hover span:before, a.button:hover span:after {
+    opacity: 1;
+    margin: 0px;
 
-/* ==========================================================================
-   Browser Upgrade Prompt
-   ========================================================================== */
+  }
 
-.browserupgrade {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0;
-}
-
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-
-
-
-
-
-
-
-
-
-
-
-
+  a.button:before {
+    content: '';
+    position: absolute;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-top: 0px;
+    height: 100%;
+    border: 2px solid #fff;
+    -webkit-transition: margin-top 0.3s;
+            transition: margin-top 0.3s;
+    -webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+            transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
 
 
+  }
+  a.button:hover::before {margin-top: 38px;}
+  .huge a.button:hover::before {margin-top: 56px;}
 
+ .huge a.button {
+   font-size: 27px;
+   width: 250px;
+   height: 58px;
+   margin-left: calc(50% - 125px);
+   line-height: 54px;
+ }
 
-/* ==========================================================================
-   Helper classes
-   ========================================================================== */
+.no-cssfilters .grid-hover.grid-item .img-container img {opacity: 0.1;}
 
-/*
- * Hide visually and from screen readers
- */
+/* Development code (via class 'bare' on body) */
 
-.hidden {
+body.bare .diamond, body.bare .inner-diamond, body.bare .button-container {
     display: none !important;
 }
 
-/*
- * Hide only visually, but have it available for screen readers:
- * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
- */
-
-.visuallyhidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
+body.bare .grid-item {
+    border: 1px solid #000;
+    background-color: green;
+    margin-top: 0;
 }
 
-/*
- * Extends the .visuallyhidden class to allow the element
- * to be focusable when navigated to via the keyboard:
- * https://www.drupal.org/node/897638
- */
-
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
-    clip: auto;
-    height: auto;
-    margin: 0;
-    overflow: visible;
-    position: static;
-    width: auto;
+body.bare .grid-item.huge {
+    background-color: red;
+    margin-top: 0px;
 }
 
-/*
- * Hide visually and from screen readers, but maintain layout
- */
-
-.invisible {
-    visibility: hidden;
-}
-
-/*
- * Clearfix: contain floats
- *
- * For modern browsers
- * 1. The space content is one way to avoid an Opera bug when the
- *    `contenteditable` attribute is included anywhere else in the document.
- *    Otherwise it causes space to appear at the top and bottom of elements
- *    that receive the `clearfix` class.
- * 2. The use of `table` rather than `block` is only necessary if using
- *    `:before` to contain the top-margins of child elements.
- */
-
-.clearfix:before,
-.clearfix:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
-}
-
-.clearfix:after {
-    clear: both;
-}
-
-/* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
-   ========================================================================== */
-
-@media only screen and (min-width: 35em) {
-    /* Style adjustments for viewports that meet the condition */
-}
-
-@media print,
-       (-webkit-min-device-pixel-ratio: 1.25),
-       (min-resolution: 1.25dppx),
-       (min-resolution: 120dpi) {
-    /* Style adjustments for high resolution devices */
-}
-
-/* ==========================================================================
-   Print styles.
-   Inlined to avoid the additional HTTP request:
-   http://www.phpied.com/delay-loading-your-print-css/
-   ========================================================================== */
-
-@media print {
-    *,
-    *:before,
-    *:after,
-    *:first-letter,
-    *:first-line {
-        background: transparent !important;
-        color: #000 !important; /* Black prints faster:
-                                   http://www.sanbeiji.com/archives/953 */
-        box-shadow: none !important;
-        text-shadow: none !important;
-    }
-
-    a,
-    a:visited {
-        text-decoration: underline;
-    }
-
-    a[href]:after {
-        content: " (" attr(href) ")";
-    }
-
-    abbr[title]:after {
-        content: " (" attr(title) ")";
-    }
-
-    /*
-     * Don't show links that are fragment identifiers,
-     * or use the `javascript:` pseudo protocol
-     */
-
-    a[href^="#"]:after,
-    a[href^="javascript:"]:after {
-        content: "";
-    }
-
-    pre,
-    blockquote {
-        border: 1px solid #999;
-        page-break-inside: avoid;
-    }
-
-    /*
-     * Printing Tables:
-     * http://css-discuss.incutio.com/wiki/Printing_Tables
-     */
-
-    thead {
-        display: table-header-group;
-    }
-
-    tr,
-    img {
-        page-break-inside: avoid;
-    }
-
-    img {
-        max-width: 100% !important;
-    }
-
-    p,
-    h2,
-    h3 {
-        orphans: 3;
-        widows: 3;
-    }
-
-    h2,
-    h3 {
-        page-break-after: avoid;
-    }
-}
-
-.grid {margin: 320px 100px; max-width: 800px}
-
-.grid-item {
-  width: 200px;
-  height: 200px;
-  box-sizing: content-box;
-
- }
-
- .grid-item.huge {
-   width: 400px;
-   height: 400px;
-   box-sizing: content-box;
-
-  }
-
-
-
-
-.grid-item .diamond .inner-diamond{
-    width: 200px;
-    height: 200px;
-  }
-
-.grid-item:nth-child(4n+0) .diamond{background: purple}
-.grid-item:nth-child(4n+1) .diamond{background: blue}
-.grid-item:nth-child(4n+2) .diamond{background: green}
-.grid-item:nth-child(4n+3) .diamond{background: violet}
-.grid-item:nth-child(4n+4) .diamond{background: yellow}
-.grid-item:nth-child(4n+5) .diamond{background: cyan}
-
-
-
-.grid-item:nth-child(2n+2):not(.huge) {}

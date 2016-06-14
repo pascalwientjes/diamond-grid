@@ -6,73 +6,426 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <!-- Place favicon.ico in the root directory -->
-
         <link rel="stylesheet" href="css/main.css">
+        <script src="js/modernizr-2.8.3.min.js"></script>
+        <script src="js/modernizr-custom.js"></script>
+
 
     </head>
-    <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
-        <!-- Add your site or application content here -->
+    <!-- class='bare' for development -->
+    <body class='bare1'>
         <div class="controls">
+          <button onclick="toggleStamper()">Toggle stamp</button>
           <button onclick="addDiamond('')" class="append-button">New diamond</button>
-          <button onclick="addDiamond('huge')" class="new-huge">New Huge diamond (doesn't work yet ... well not good at least)</button>
+          <button onclick="addHugeDiamond('')" class="new-huge">New Huge diamond</button>
+          <button onclick="toggleDevMode()">Toggle dev mode</button>
         </div>
 
+        <div class="grid-container">
+        <div class="bg-grid">
+        </div>
+
+        <div class="over-grid">
         <div class="grid">
-          <div class="grid-item">
-            <div class="diamond">
-              <div class="inner-diamond">test test</div>
-            </div>
-          </div>
-          <div class="grid-item">
-            <div class="diamond">
-              <div class="inner-diamond">test test</div>
-            </div>
-          </div>
-          <div class="grid-item">
-            <div class="diamond">
-              <div class="inner-diamond">test test</div>
-            </div>
-          </div>
-          <div class="grid-item">
-            <div class="diamond">
-              <div class="inner-diamond">test test</div>
-            </div>
-          </div>
-          <div class="grid-item">
-            <div class="diamond">
-              <div class="inner-diamond">test test</div>
-            </div>
-          </div>
-          <div class="grid-item">
-            <div class="diamond">
-              <div class="inner-diamond">test test</div>
-            </div>
-          </div>
+              <div id="small1" class="grid-item">
+                <div class="diamond">
+                  <div class="img-container">
+                    <img src="images/portfolio1.jpg" alt="" />
+                  </div>
+                </div>
+                <div class="inner-diamond">
+                  <div class="diamond-content">
+                    <div class="diamond-logo"><img src="images/logos/logo1.png" alt="" /></div>
+                    <div class="diamond-exerpt">Met veel plezier hebben wij met het team van BigBridge gewerkt aan onze nieuwe shop</div>
+                  </div>
+                </div>
+                <div class="button-container">
+                  <a class="button" href="#">
+                    <i>bekijk project</i>
+                    <span>bekijk project </span>
+                  </a>
+                </div>
+              </div>
+              <div id="huge1" class="grid-item huge">
+                <div class="diamond">
+                  <div class="img-container">
+                    <img src="images/portfolio2.jpg" alt="" />
+                  </div>
+                </div>
+                <div class="inner-diamond">
+                  <div class="diamond-content">
+                    <div class="diamond-logo"><img src="images/logos/logo2.png" alt="" /></div>
+                    <div class="diamond-exerpt">Met veel plezier hebben wij met het team van BigBridge gewerkt aan onze nieuwe shop</div>
+                  </div>
+                </div>
+                <div class="button-container">
+                  <a class="button" href="#">
+                    <i>bekijk project</i>
+                    <span>bekijk project </span>
+                  </a>
+                </div>
+              </div>
+              <div class="grid-item">
+                <div class="diamond">
+                  <div class="img-container">
+                    <img src="images/portfolio3.jpg" alt="" />
+                  </div>
+                </div>
+                <div class="inner-diamond">
+                  <div class="diamond-content">
+                    <div class="diamond-logo"><img src="images/logos/logo3.png" alt="" /></div>
+                    <div class="diamond-exerpt">Met veel plezier hebben wij met het team van BigBridge gewerkt aan onze nieuwe shop</div>
+                  </div>
+                </div>
+                <div class="button-container">
+                  <a class="button" href="#">
+                    <i>bekijk project</i>
+                    <span>bekijk project </span>
+                  </a>
+                </div>
+              </div>
+              <div class="grid-item">
+                <div class="diamond">
+                  <div class="img-container">
+                    <img src="images/portfolio4.jpg" alt="" />
+                  </div>
+                </div>
+                <div class="inner-diamond">
+                  <div class="diamond-content">
+                    <div class="diamond-logo"><img src="images/logos/logo4.png" alt="" /></div>
+                    <div class="diamond-exerpt">Met veel plezier hebben wij met het team van BigBridge gewerkt aan onze nieuwe shop</div>
+                  </div>
+                </div>
+                <div class="button-container">
+                  <a class="button" href="#">
+                    <i>bekijk project</i>
+                    <span>bekijk project </span>
+                  </a>
+                </div>
+              </div>
+              <div class="grid-item">
+                <div class="diamond">
+                  <div class="img-container">
+                    <img src="images/portfolio5.jpg" alt="" />
+                  </div>
+                </div>
+                <div class="inner-diamond">
+                  <div class="diamond-content">
+                    <div class="diamond-logo"><img src="images/logos/logo5.png" alt="" /></div>
+                    <div class="diamond-exerpt">Met veel plezier hebben wij met het team van BigBridge gewerkt aan onze nieuwe shop</div>
+                  </div>
+                </div>
+                <div class="button-container">
+                  <a class="button" href="#">
+                    <i>bekijk project</i>
+                    <span>bekijk project </span>
+                  </a>
+                </div>
+              </div>
+              <div class="grid-item">
+                <div class="diamond">
+                  <div class="img-container">
+                    <img src="images/portfolio6.jpg" alt="" />
+                  </div>
+                </div>
+                <div class="inner-diamond">
+                  <div class="diamond-content">
+                    <div class="diamond-logo"><img src="images/logos/logo6.png" alt="" /></div>
+                    <div class="diamond-exerpt">Met veel plezier hebben wij met het team van BigBridge gewerkt aan onze nieuwe shop</div>
+                  </div>
+                </div>
+                <div class="button-container">
+                  <a class="button" href="#">
+                    <i>bekijk project</i>
+                    <span>bekijk project </span>
+                  </a>
+                </div>
+              </div>
+              <div class="grid-item">
+                <div class="diamond">
+                  <div class="img-container">
+                    <img src="images/portfolio7.jpg" alt="" />
+                  </div>
+                </div>
+                <div class="inner-diamond">
+                  <div class="diamond-content">
+                    <div class="diamond-logo"><img src="images/logos/logo7.png" alt="" /></div>
+                    <div class="diamond-exerpt">Met veel plezier hebben wij met het team van BigBridge gewerkt aan onze nieuwe shop</div>
+                  </div>
+                </div>
+                <div class="button-container">
+                  <a class="button" href="#">
+                    <i>bekijk project</i>
+                    <span>bekijk project </span>
+                  </a>
+                </div>
+              </div>
+              <div class="grid-item">
+                <div class="diamond">
+                  <div class="img-container">
+                    <img src="images/portfolio8.jpg" alt="" />
+                  </div>
+                </div>
+                <div class="inner-diamond">
+                  <div class="diamond-content">
+                    <div class="no-logo">Oktoberfest winkel</div>
+                    <div class="diamond-exerpt">Met veel plezier hebben wij met het team van BigBridge gewerkt aan onze nieuwe shop</div>
+                  </div>
+                </div>
+                <div class="button-container">
+                  <a class="button" href="#">
+                    <i>bekijk project</i>
+                    <span>bekijk project </span>
+                  </a>
+                </div>
+              </div>
+              <div class="grid-item">
+                <div class="diamond">
+                  <div class="img-container">
+                    <img src="images/portfolio9.jpg" alt="" />
+                  </div>
+                </div>
+                <div class="inner-diamond">
+                  <div class="diamond-content">
+                    <div class="diamond-logo"><img src="images/logos/logo9.png" alt="" /></div>
+                    <div class="diamond-exerpt">Met veel plezier hebben wij met het team van BigBridge gewerkt aan onze nieuwe shop</div>
+                  </div>
+                </div>
+                <div class="button-container">
+                  <a class="button" href="#">
+                    <i>bekijk project</i>
+                    <span>bekijk project </span>
+                  </a>
+                </div>
+              </div>
+              <div class="grid-item">
+                <div class="diamond">
+                  <div class="img-container">
+                    <img src="images/portfolio10.jpg" alt="" />
+                  </div>
+                </div>
+                <div class="inner-diamond">
+                  <div class="diamond-content">
+                    <div class="diamond-logo"><img src="images/logos/logo10.png" alt="" /></div>
+                    <div class="diamond-exerpt">Met veel plezier hebben wij met het team van BigBridge gewerkt aan onze nieuwe shop</div>
+                  </div>
+                </div>
+                <div class="button-container">
+                  <a class="button" href="#">
+                    <i>bekijk project</i>
+                    <span>bekijk project </span>
+                  </a>
+                </div>
+              </div>
+              <div class="grid-item">
+                <div class="diamond">
+                  <div class="img-container">
+                    <img src="images/portfolio11.jpg" alt="" />
+                  </div>
+                </div>
+                <div class="inner-diamond">
+                  <div class="diamond-content">
+                    <div class="diamond-logo"><img src="images/logos/logo11.png" alt="" /></div>
+                    <div class="diamond-exerpt">Met veel plezier hebben wij met het team van BigBridge gewerkt aan onze nieuwe shop</div>
+                  </div>
+                </div>
+                <div class="button-container">
+                  <a class="button" href="#">
+                    <i>bekijk project</i>
+                    <span>bekijk project </span>
+                  </a>
+                </div>
+              </div>
+              <div class="grid-item">
+                <div class="diamond">
+                  <div class="img-container">
+                    <img src="images/portfolio12.jpg" alt="" />
+                  </div>
+                </div>
+                <div class="inner-diamond">
+                  <div class="diamond-content">
+                    <div class="diamond-logo"><img src="images/logos/logo12.png" alt="" /></div>
+                    <div class="diamond-exerpt">Met veel plezier hebben wij met het team van BigBridge gewerkt aan onze nieuwe shop</div>
+                  </div>
+                </div>
+                <div class="button-container">
+                  <a class="button" href="#">
+                    <i>bekijk project</i>
+                    <span>bekijk project </span>
+                  </a>
+                </div>
+              </div>
+              <div class="grid-item">
+                <div class="diamond">
+                  <div class="img-container">
+                    <img src="images/portfolio13.jpg" alt="" />
+                  </div>
+                </div>
+                <div class="inner-diamond">
+                  <div class="diamond-content">
+                    <div class="diamond-logo"><img src="images/logos/logo13.png" alt="" /></div>
+                    <div class="diamond-exerpt">Met veel plezier hebben wij met het team van BigBridge gewerkt aan onze nieuwe shop</div>
+                  </div>
+                </div>
+                <div class="button-container">
+                  <a class="button" href="#">
+                    <i>bekijk project</i>
+                    <span>bekijk project </span>
+                  </a>
+                </div>
+              </div>
+              <div class="grid-item">
+                <div class="diamond">
+                  <div class="img-container">
+                    <img src="images/portfolio14.jpg" alt="" />
+                  </div>
+                </div>
+                <div class="inner-diamond">
+                  <div class="diamond-content">
+                    <div class="diamond-logo"><img src="images/logos/logo14.png" alt="" /></div>
+                    <div class="diamond-exerpt">Met veel plezier hebben wij met het team van BigBridge gewerkt aan onze nieuwe shop</div>
+                  </div>
+                </div>
+                <div class="button-container">
+                  <a class="button" href="#">
+                    <i>bekijk project</i>
+                    <span>bekijk project </span>
+                  </a>
+                </div>
+              </div>
+              <div class="grid-item">
+                <div class="diamond">
+                  <div class="img-container">
+                    <img src="images/portfolio15.jpg" alt="" />
+                  </div>
+                </div>
+                <div class="inner-diamond">
+                  <div class="diamond-content">
+                    <div class="diamond-logo"><img src="images/logos/logo15.png" alt="" /></div>
+                    <div class="diamond-exerpt">Met veel plezier hebben wij met het team van BigBridge gewerkt aan onze nieuwe shop</div>
+                  </div>
+                </div>
+                <div class="button-container">
+                  <a class="button" href="#">
+                    <i>bekijk project</i>
+                    <span>bekijk project </span>
+                  </a>
+                </div>
+              </div>
+              <div class="grid-item">
+                <div class="diamond">
+                  <div class="img-container">
+                    <img src="images/portfolio16.jpg" alt="" />
+                  </div>
+                </div>
+                <div class="inner-diamond">
+                  <div class="diamond-content">
+                    <div class="diamond-logo"><img src="images/logos/logo16.png" alt="" /></div>
+                    <div class="diamond-exerpt">Met veel plezier hebben wij met het team van BigBridge gewerkt aan onze nieuwe shop</div>
+                  </div>
+                </div>
+                <div class="button-container">
+                  <a class="button" href="#">
+                    <i>bekijk project</i>
+                    <span>bekijk project </span>
+                  </a>
+                </div>
+              </div>
+              <div class="grid-item your-project">
+                <div class="diamond">
+                    <p>Komt hier uw volgende project?</p>
+                </div>
+              </div>
+              <div class="grid-item">
+                <div class="diamond">
+                  <div class="img-container">
+                    <img src="images/portfolio17.jpg" alt="" />
+                  </div>
+                </div>
+                <div class="inner-diamond">
+                  <div class="diamond-content">
+                    <div class="diamond-logo"><img src="images/logos/logo17.png" alt="" /></div>
+                    <div class="diamond-exerpt">Met veel plezier hebben wij met het team van BigBridge gewerkt aan onze nieuwe shop</div>
+                  </div>
+                </div>
+                <div class="button-container">
+                  <a class="button" href="#">
+                    <i>bekijk project</i>
+                    <span>bekijk project </span>
+                  </a>
+                </div>
+              </div>
 
         </div>
+        </div>
+        </div>
+
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-        <script src="node_modules/masonry-layout/dist/masonry.pkgd.min.js"></script>
+
+        <script src="js/masonry.pkgd.js"></script>
+        <script src="js/bb-masonry.js"></script>
 
 
         <script>
         var $grid = jQuery('.grid').masonry({
-          columnWidth: 200,
+          columnWidth: 246,
           itemSelector: '.grid-item'
         });
 
         function addDiamond(className){
 
-          var element = "<div class='grid-item " + className + "'><div class='diamond'><div class='inner-diamond'></div></div></div>";
+          var element = document.getElementById('small1').cloneNode(true);
+          element.id = '';
           element = jQuery(element);
           jQuery('.grid').append(element).masonry( 'appended', element ).masonry('layout');
-        };
+
+        }
+
+        function addHugeDiamond(className){
+
+          var grid = jQuery('.grid');
+
+          var element = document.getElementById('huge1').cloneNode(true);
+          element.id = '';
+          element = jQuery(element);
+          grid.append(element).masonry( 'appended', element ).masonry('layout');
+        }
+
+        function addGridHover() {
+
+          jQuery(this).parents('.grid-item').addClass('grid-hover');
+        }
+
+        function toggleDevMode()
+        {
+          jQuery(document.getElementsByTagName('body')[0]).toggleClass('bare');
+        }
+
+        var isStamped = false;
+
+        function toggleStamper()
+        {
+            isStamped = !isStamped;
+
+            if (isStamped) {
+                BigBridge.Jewelry.stamps = [{row: 0, column: 0}, {row: 0, startColumn: 4}, {column: 4, endRow: 10}];
+            } else {
+                BigBridge.Jewelry.stamps = [];
+            }
+
+            $grid.masonry('layout');
+        }
+
+        jQuery('.grid-item .diamond').mouseenter(addGridHover);
+        jQuery('.grid-item .button-container').mouseenter(addGridHover);
+
+
+          jQuery('.grid-item .diamond').mouseleave(function(){
+            jQuery('.grid-item').removeClass('grid-hover')
+          });
+
+
         </script>
 
     </body>

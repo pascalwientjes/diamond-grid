@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5ae42c36-eb4b-486f-a270-47d3a6497324" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fonts/icomoon.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fonts/icomoon.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fonts/icomoon.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/logos/logo1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/logos/logo10.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/logos/logo11.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/logos/logo12.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/logos/logo13.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/logos/logo14.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/logos/logo15.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/logos/logo16.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/logos/logo17.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/logos/logo2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/logos/logo3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/logos/logo4.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/logos/logo5.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/logos/logo6.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/logos/logo7.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/logos/logo9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/portfolio1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/portfolio10.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/portfolio11.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/portfolio12.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/portfolio13.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/portfolio14.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/portfolio15.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/portfolio16.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/portfolio17.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/portfolio2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/portfolio3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/portfolio4.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/portfolio5.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/portfolio6.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/portfolio7.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/portfolio8.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/portfolio9.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/icomoon.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/fonts/icomoon.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/bb-masonry.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/modernizr-2.8.3.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/modernizr-custom.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/.github/contributing.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/.github/issue_template.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/.jshintrc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/.npmignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/dist/masonry.pkgd.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/gulpfile.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/masonry.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/get-size/.npmignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/get-size/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/get-size/bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/get-size/get-size.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/get-size/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/get-size/sandbox.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/get-size/test/iframe.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/get-size/test/iframe3.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/get-size/test/iframe4.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/get-size/test/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/get-size/test/tests.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/get-size/test/tests.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/.jshintrc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/.npmignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/docs/item.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/docs/notes.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/docs/outlayer.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/item.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/node_modules/ev-emitter/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/node_modules/ev-emitter/bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/node_modules/ev-emitter/ev-emitter.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/node_modules/ev-emitter/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/node_modules/ev-emitter/sandbox/1.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/node_modules/ev-emitter/test/test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/node_modules/fizzy-ui-utils/.npmignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/node_modules/fizzy-ui-utils/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/node_modules/fizzy-ui-utils/bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/node_modules/fizzy-ui-utils/node_modules/desandro-matches-selector/.npmignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/node_modules/fizzy-ui-utils/node_modules/desandro-matches-selector/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/node_modules/fizzy-ui-utils/node_modules/desandro-matches-selector/bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/node_modules/fizzy-ui-utils/node_modules/desandro-matches-selector/matches-selector.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/node_modules/fizzy-ui-utils/node_modules/desandro-matches-selector/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/node_modules/fizzy-ui-utils/node_modules/desandro-matches-selector/tests.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/node_modules/fizzy-ui-utils/node_modules/desandro-matches-selector/tests.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/node_modules/fizzy-ui-utils/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/node_modules/fizzy-ui-utils/test/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/node_modules/fizzy-ui-utils/test/unit/.jshintrc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/node_modules/fizzy-ui-utils/test/unit/filter-find-elements.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/node_modules/fizzy-ui-utils/test/unit/get-parent.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/node_modules/fizzy-ui-utils/test/unit/html-init.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/node_modules/fizzy-ui-utils/test/unit/make-array.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/node_modules/fizzy-ui-utils/test/unit/remove-from.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/node_modules/fizzy-ui-utils/utils.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/outlayer.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/sandbox/browserify/browserify.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/sandbox/browserify/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/sandbox/cells-by-row.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/sandbox/cells-by-row.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/sandbox/examples.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/sandbox/fit-rows.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/sandbox/item-methods.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/sandbox/padding-percent.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/sandbox/requirejs/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/sandbox/requirejs/requirejs.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/sandbox/stagger.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/sandbox/toggler.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/test/.jshintrc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/test/helpers.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/test/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/test/tests.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/test/unit/add-items.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/test/unit/basics.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/test/unit/container-size.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/test/unit/create.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/test/unit/declarative.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/test/unit/defaults.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/test/unit/destroy.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/test/unit/filter-find.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/test/unit/get-measurements.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/test/unit/hide-reveal.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/test/unit/item-on-transition-end.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/test/unit/jquery-plugin.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/test/unit/layout.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/test/unit/offset.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/test/unit/options.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/test/unit/origin.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/test/unit/percent-position.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/test/unit/prepend.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/test/unit/remove.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/test/unit/stamp.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/node_modules/outlayer/test/unit/transition-duration.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/sandbox/add-items.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/sandbox/basic.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/sandbox/bottom-up.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/sandbox/browserify/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/sandbox/browserify/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/sandbox/element-sizing.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/sandbox/fit-width.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/sandbox/fluid.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/sandbox/jquery.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/sandbox/require-js/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/sandbox/require-js/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/sandbox/right-to-left.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/sandbox/sandbox.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/sandbox/stamps.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/test/.jshintrc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/test/helpers.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/test/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/test/tests.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/test/unit/basic-layout.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/test/unit/element-sizing.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/test/unit/empty.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/test/unit/fit-width.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/test/unit/gutter.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/test/unit/pixel-rounding.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/test/unit/stamp.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/test/unit/zero-column-width.js" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/node_modules/masonry-layout/dist/masonry.pkgd.js" afterPath="$PROJECT_DIR$/js/masonry.pkgd.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/main.css" afterPath="$PROJECT_DIR$/css/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+    </list>
+    <ignored path="diamond-grid.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="diamond-grid" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="bb-masonry.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/bb-masonry.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.275862">
+              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/css/main.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.24774775">
+              <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="masonry.pkgd.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/masonry.pkgd.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="24.316668">
+              <caret line="285" column="4" selection-start-line="285" selection-start-column="4" selection-end-line="285" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/js/bb-masonry.js" />
+        <option value="$PROJECT_DIR$/css/main.css" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" />
+  <component name="JsBuildToolPackageJson" detection-done="true" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="2230" />
+    <option name="y" value="153" />
+    <option name="width" value="1421" />
+    <option name="height" value="874" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="diamond-grid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="diamond-grid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="diamond-grid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="diamond-grid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="diamond-grid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="diamond-grid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="diamond-grid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="107" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="123" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="125" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="975" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="107" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="123" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="125" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="975" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <envs />
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5ae42c36-eb4b-486f-a270-47d3a6497324" name="Default" comment="" />
+      <created>1465888298591</created>
+      <option name="number" value="Default" />
+      <updated>1465888298591</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Fixed layout bug">
+      <created>1465888462010</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1465888462010</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Fix wrong itemheight bug&#10;">
+      <created>1465901028069</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1465901028069</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="2230" y="153" width="1421" height="874" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27312455" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43925235" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="Fixed layout bug" />
+    <MESSAGE value="Fix wrong itemheight bug&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix wrong itemheight bug&#10;" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/js/bb-masonry.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/masonry.pkgd.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="24.316668">
+          <caret line="285" column="4" selection-start-line="285" selection-start-column="4" selection-end-line="285" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/bb-masonry.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.275862">
+          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24774775">
+          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
