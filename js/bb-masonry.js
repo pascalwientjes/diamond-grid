@@ -269,7 +269,7 @@ BigBridge.Jewelry.prototype.spaceForHugeDiamond = function(grid, row, col)
 
         var leftNeighbourOk =
             !leftNeighbour ||
-            (leftNeighbour.element && !leftNeighbour.element.className.match(/huge/));
+            (leftNeighbour != BigBridge.Grid.CLEARANCE && !leftNeighbour.element.className.match(/huge/));
 
         return (
             leftNeighbourOk &&
