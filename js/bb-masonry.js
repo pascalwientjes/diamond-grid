@@ -93,12 +93,34 @@ BigBridge.Jewelry.prototype.prepareGrid = function(items, itemWidth, itemHeight,
 {
     // copy the item array, since we are going to modify it
     var itemQueue = items.slice(0);
+    var colCount = grid.getColumnCount();
+    var lastLine = false;
 
     // continue creation rows as long as there are items left
     for (var row = 0; itemQueue.length > 0; row++) {
 
+        if (itemQueue.length <= colCount) {
+            lastLine = true;
+        }
+
         // the number of columns is a given
-        for (var col = 0; col < grid.getColumnCount(); col++) {
+        for (var realCol = 0; realCol < grid.getColumnCount(); realCol++) {
+
+            // last line
+            if (lastLine) {
+
+                var col = 0;
+                var half = Math.ceil(grid.getColumnCount() / 2);
+
+                if (realCol < half) {
+                    col = realCol * 2;
+                } else {
+                    col = ((realCol - half) * 2) + 1;
+                }
+
+            } else {
+                col = realCol;
+            }
 
             // is this position blocked?
             if (grid.get(row, col) == BigBridge.Grid.CLEARANCE) {
